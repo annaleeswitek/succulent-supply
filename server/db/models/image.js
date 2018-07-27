@@ -1,11 +1,8 @@
 const Sequelize = require('sequelize')
 const db = require('../db')
 
-const Photo = db.define('photo', {
-  image: {
-    type: Sequelize.STRING,
-    defaultValue: 'public/images/terrarium.jpg'
-  }
+const Image = db.define('image', {
+
 })
 
-module.exports = Photo
+module.exports = Image

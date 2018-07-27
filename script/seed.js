@@ -24,7 +24,7 @@ async function seed() {
       quantity: 100,
       family: 'Asphodelaceae' ,
       genus: 'Haworthia',
-      species: 'attenuata', image: 'public/images/haworthia-big-band.jpg',
+      species: 'Attenuata',
       isCactus: false}),
 
     // Succulent.create({
@@ -37,10 +37,12 @@ async function seed() {
     //   species: '',
     //   isCactus: false}),
   ])
+
+  console.log(`seeded ${succulents.length} succulents`)
+  console.log(`seeded successfully`)
 }
 
-console.log(`seeded ${succulents.length} succulents`)
-console.log(`seeded successfully`)
+
 
 async function runSeed() {
   console.log('seeding...')
