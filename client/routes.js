@@ -25,7 +25,7 @@ class Routes extends Component {
             <Route path="/home" component={UserHome} />
           </Switch>
         )}
-        {/* Displays our Login component as a fallback */}
+        {/* Displays our catalog of products as a default view */}
         <Route component={SucculentList} />
       </Switch>
     )

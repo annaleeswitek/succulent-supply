@@ -6,8 +6,11 @@ import { logout } from '../store'
 
 const Navbar = ({handleClick, isLoggedIn}) => (
   <div>
-    <h1>SUCCULENT DEPOT</h1>
-    <nav>
+    <nav className="nav-bar">
+      <img src='/images/logo.jpg' className="logo-img" />
+      <h1>SUCCULENT SUPPLY</h1>
+      <img src='/images/logo.jpg' className="logo-img" />
+
       {isLoggedIn ? (
         <div>
           {/* shown after log in */}

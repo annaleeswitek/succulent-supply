@@ -143,7 +143,7 @@ async function seed() {
     Succulent.create({
       name: 'Sulcorebutia Rauschii',
       description: 'Rebutia is a genus in the family Cactaceae, native to Bolivia and Argentina. They are generally small, colorful cacti, globular in form, which freely produce flowers that are relatively large in relation to the body. They have no distinctive ribs, but do have regularly arranged small tubercles. They are considered fairly easy to grow and they may produce large quantities of seeds that germinate freely around the parent plant.',
-      image: 'images/sulcorebutia-rauschii.jpg',
+      image: '/images/sulcorebutia-rauschii.jpg',
       price: 30.50,
       quantity: 32,
       family: 'Cactaceae',

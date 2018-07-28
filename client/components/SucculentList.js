@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { fetchSucculents } from '../store/succulents'
+import SingleSuccCard from './SingleSuccCard'
 
 class SucculentList extends Component {
   componentDidMount(){
@@ -10,17 +11,16 @@ class SucculentList extends Component {
   render () {
     const { succulents } = this.props
     return (
-      <div>
-      {
-        succulents.length && succulents.map(succ => {
-          return (
-            <div key={succ.id} >
-              <h1>{succ.name}</h1>
-              <img src={succ.image} />
-            </div>
-          )
-        })
-      }
+      <div className="products-wrapper">
+        <div className="products-box">
+          <div className="products">
+            {
+              succulents.length
+                ? succulents.map(succ => <SingleSuccCard succulent={succ} key={succ.id} />)
+                : <div><h2>Sorry! No succulents to see here! 🚫🌵</h2></div>
+            }
+          </div>
+        </div>
       </div>
     )
   }
