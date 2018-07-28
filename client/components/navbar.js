@@ -7,9 +7,14 @@ import { logout } from '../store'
 const Navbar = ({handleClick, isLoggedIn}) => (
   <div>
     <nav className="nav-bar">
+
       <div className="title">
         <img src='/images/logo.jpg' className="logo-img" />
-        <h1 className="karla-font">SUCCULENT SUPPLY</h1>
+        <Link to='/home' style={{ textDecoration: 'none', color:'white' }} className="karla-font">
+          <h1>
+            SUCCULENT SUPPLY
+          </h1>
+        </Link>
         <img src='/images/logo.jpg' className="logo-img" />
       </div>
 

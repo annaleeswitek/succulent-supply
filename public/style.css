@@ -24,7 +24,6 @@ nav {
   background: #B3D6AD;
 }
 
-
 .karla-font {
   font-family: 'Karla', sans-serif;
   color: black;
@@ -47,6 +46,7 @@ nav {
 }
 
 .logo-img {
+  margin-top: 15px;
   height: 50px;
   width: 50px;
 }
