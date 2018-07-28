@@ -4,7 +4,6 @@ import { connect } from 'react-redux';
 
 class SupplyList extends Component {
   render () {
-
     return (
       <div></div>
     )
