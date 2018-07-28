@@ -5,16 +5,14 @@ import PropTypes from 'prop-types'
 import { Login, Signup, UserHome, SucculentList } from './components'
 import { me } from './store'
 
-/**
- * COMPONENT
- */
+// Component
 class Routes extends Component {
   componentDidMount() {
     this.props.loadInitialData()
   }
 
   render() {
-    const {isLoggedIn} = this.props
+    const { isLoggedIn } = this.props
 
     return (
       <Switch>

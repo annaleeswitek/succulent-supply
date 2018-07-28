@@ -1,7 +1,6 @@
 const User = require('./user')
 const Succulent = require('./succulent')
 const Supply = require('./supply')
-const Image = require('./image')
 const Order = require('./order')
 const Review = require('./review')
 
@@ -10,9 +9,6 @@ Succulent.belongsToMany(Order, { through: 'Succulent_Orders' })
 
 Order.belongsToMany(Supply, { through: 'Supply_Orders' })
 Supply.belongsToMany(Order, { through: 'Supply_Orders' })
-
-Image.belongsTo(Succulent)
-Succulent.hasMany(Image)
 
 Review.belongsTo(Succulent)
 Succulent.hasMany(Review)
@@ -26,7 +22,6 @@ User.hasMany(Review)
 module.exports = {
   User,
   Succulent,
-  Image,
   Order,
   Review
 }

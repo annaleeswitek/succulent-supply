@@ -13,6 +13,10 @@ const Succulent = db.define('succulent', {
     type: Sequelize.TEXT,
 		allowNull: false
   },
+  image: {
+    type: Sequelize.STRING,
+    defaultValue: '/images/terrarium.jpg'
+  },
   price: {
     type: Sequelize.FLOAT,
     allowNull: false,
