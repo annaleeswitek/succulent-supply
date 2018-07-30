@@ -10,3 +10,12 @@ router.get('/', async (req, res, next) => {
      next(err)
   }
 })
+
+router.get('/:succulentId', async (req, res, next) => {
+  try {
+    const succulent = await Succulent.findById(req.params.succulentId)
+    res.json(succulent)
+  } catch (err) {
+    next(err)
+  }
+})

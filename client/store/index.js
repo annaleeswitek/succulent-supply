@@ -4,10 +4,11 @@ import thunkMiddleware from 'redux-thunk'
 import { composeWithDevTools } from 'redux-devtools-extension'
 import user from './user'
 import succulents from './succulents'
+import singleSucculent from './singleSucculent'
 
-const reducer = combineReducers({user, succulents})
+const reducer = combineReducers({ user, succulents, singleSucculent })
 const middleware = composeWithDevTools(
-  applyMiddleware(thunkMiddleware, createLogger({collapsed: true}))
+  applyMiddleware(thunkMiddleware, createLogger({ collapsed: true }))
 )
 const store = createStore(reducer, middleware)
 

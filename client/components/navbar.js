@@ -29,8 +29,8 @@ const Navbar = ({handleClick, isLoggedIn}) => (
       ) : (
         <div>
           {/* shown before log in */}
-          <Link to="/login" className="karla-font nav-links">Login</Link>
-          <Link to="/signup" className="karla-font nav-links">Sign Up</Link>
+          <Link to="/login" style={{ textDecoration: 'none', color: 'black' }} className="karla-font nav-links">Login</Link>
+          <Link to="/signup" style={{ textDecoration: 'none', color: 'black' }} className="karla-font nav-links">Sign Up</Link>
         </div>
       )}
     </nav>

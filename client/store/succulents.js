@@ -20,7 +20,7 @@ export const fetchSucculents = () => {
 	}
 }
 
-//Reducer
+// Reducer
 export default function(state = [], action) {
 	switch (action.type) {
 		case GET_SUCCS:

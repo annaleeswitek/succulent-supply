@@ -106,4 +106,41 @@ nav {
 	width: 50px;
 }
 
+.single-product-wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
 
+.big-product-image img {
+  height: 400px;
+  width: 400px;
+  margin: 75px;
+}
+
+.description-box {
+  height: 400px;
+  width: 600px;
+  /* border: solid; */
+  padding: 20px;
+  margin: 75px;
+}
+
+.product-title {
+  font-size: 28px;
+}
+
+.product-price {
+  font-size: 20px;
+}
+
+.info-options-box {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+.single-succulent-view-box {
+  display: flex;
+  flex-direction: column;
+}

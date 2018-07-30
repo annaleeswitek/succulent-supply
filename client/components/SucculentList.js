@@ -17,7 +17,7 @@ class SucculentList extends Component {
             {
               succulents.length
                 ? succulents.map(succ => <SingleSuccCard succulent={succ} key={succ.id} />)
-                : <div><h2>Sorry! No succulents to see here! 🚫🌵</h2></div>
+                : <div><h2>🚫🌵 Sorry! No succulents to see here! 🚫🌵</h2></div>
             }
           </div>
         </div>

@@ -6,15 +6,14 @@ const SingleSuccCard = (props) => {
 
 	return (
 		<div className="product">
-			<div className="product-image">
-				<img src={succulent.image} />
-			</div>
+			<Link to={`/succulents/${succulent.id}`}>
+        <div className="product-image">
+          <img src={succulent.image} />
+        </div>
+      </Link>
 			<div>
-				<a>{succulent.name}</a> <br />
-				<a>Price: ${succulent.price}</a>
-			</div>
-			<div>
-				<button><Link to={`/succulents/${succulent.id}`}>More Info</Link></button>
+				<span><b>{succulent.name}</b></span> <br />
+				<span>Price: ${succulent.price}</span>
 			</div>
 		</div>
 	)
