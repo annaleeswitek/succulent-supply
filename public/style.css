@@ -144,3 +144,8 @@ nav {
   display: flex;
   flex-direction: column;
 }
+
+.selected {
+  text-decoration: underline;
+  color: #B3D6AD;
+}

@@ -39,39 +39,52 @@ class SingleSucculent extends Component {
               </div>
               <div>
                 <div className="description-box">
-                  <span className="karla-font product-title"><b>{singleSucculent.name}</b></span>
+                  <div className="karla-font product-title"><b>{singleSucculent.name}</b></div>
                   <br />
-                  <span className="karla-font product-price">Price: ${singleSucculent.price}</span>
+                  <div className="karla-font product-price">Price: ${singleSucculent.price}</div>
                   <br />
-                  <span>Stars Go Here</span>
+                  <div>Stars Go Here</div>
                   <br />
-                  <span>Choose amount field goes here</span>
+                  <div>Choose amount field goes here</div>
                   <br />
                   <button type="button">Add to Cart</button>
                   <hr />
-                  <div className="info-options-box">
-                    <span onClick={this.handleClick}><b>Description</b></span>
-
-                    <span onClick={this.handleClick}><b>Details</b></span>
+                  <div>
+                    {
+                      this.state.toggle
+                      ?
+                        (
+                          <div className="info-options-box">
+                            <div className="selected" onClick={this.handleClick}><b>Description</b></div>
+                            <div onClick={this.handleClick}><b>Details</b></div>
+                          </div>
+                        )
+                      :
+                        (
+                          <div className="info-options-box">
+                            <div onClick={this.handleClick}><b>Description</b></div>
+                            <div className="selected" onClick={this.handleClick}><b>Details</b></div>
+                          </div>
+                        )
+                    }
                   </div>
-                  {
-                    this.state.toggle ?
-                      (
-                        <div>
-                          <span>{singleSucculent.description}</span>
-                        </div>
-                      )
-                    :
-                      (
-                        <div>
-                          <span>Family: {singleSucculent.family}</span>
-                          <br />
-                          <span>Genus: {singleSucculent.genus}</span>
-                          <br />
-                          <span>Species: {singleSucculent.species}</span>
-                        </div>
-                      )
-                  }
+                    {
+                      this.state.toggle
+                      ?
+                        (
+                          <div>
+                            <p>{singleSucculent.description}</p>
+                          </div>
+                        )
+                      :
+                        (
+                          <div>
+                            <p><b>Family:</b> {singleSucculent.family}</p>
+                            <p><b>Genus: </b>{singleSucculent.genus}</p>
+                            <p><b>Species:</b> {singleSucculent.species}</p>
+                          </div>
+                        )
+                    }
               </div>
              </div>
             </div>
