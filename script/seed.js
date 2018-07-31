@@ -74,7 +74,7 @@ async function seed() {
 
     Succulent.create({
       name: 'Crown of Thorns',
-      description: `It is a succulent climbing shrub growing to 1.8 m (5 ft 11 in) tall, with densely spiny stems. The straight, slender spines, up to 3 cm (1.2 in) long, help it scramble over other plants. The leaves are found mainly on new growth,[1] and are obovate, up to 3.5 cm (1.4 in) long and 1.5 cm (0.59 in) broad. The flowers are small, subtended by a pair of conspicuous petal-like bracts, variably red, pink or white, up to 12 mm (0.47 in) broad.[2] The sap is moderately poisonous, and causes irritation on contact with skin or eyes. If ingested, it causes severe stomach pain, irritation of the throat and mouth, and vomiting. The poisonous ingredients have been identified as phorbol esters.[3] Wat Phrik in Thailand claims to be the home of the world's tallest Christ thorn plant.[4] Euphorbia Milii could be propagated from cuttings`,
+      description: `It is a succulent climbing shrub growing to 1.8 m (5 ft 11 in) tall, with densely spiny stems. The straight, slender spines, up to 3 cm (1.2 in) long, help it scramble over other plants. The leaves are found mainly on new growth,[1] and are obovate, up to 3.5 cm (1.4 in) long and 1.5 cm (0.59 in) broad.`,
       image: '/images/crown-of-thorns.jpg',
       price: 12.99,
       quantity: 45,
@@ -87,7 +87,7 @@ async function seed() {
 
     Succulent.create({
       name: 'Notocactus',
-      description: 'Parodia is a genus of flowering plants in the cactus family Cactaceae, native to the uplands of Argentina, Peru, Bolivia, Brazil, Colombia and Uruguay. This genus has about 50 species, many of which have been transferred from Eriocactus, Notocactus and Wigginsia. They range from small globose plants to 1 m (3 ft) tall columnar cacti. All are deeply ribbed and spiny, with single flowers at or near the crown. Some species produce offsets at the base. They are popular in cultivation, but must be grown indoors where temperatures fall below 10 °C (50 °F).  The genus is named after Domingo Parodi, one of the early investigators of the flora of Paraguay.',
+      description: 'Parodia is a genus of flowering plants in the cactus family Cactaceae, native to the uplands of Argentina, Peru, Bolivia, Brazil, Colombia and Uruguay. This genus has about 50 species, many of which have been transferred from Eriocactus, Notocactus and Wigginsia. They range from small globose plants to 1 m (3 ft) tall columnar cacti. All are deeply ribbed and spiny, with single flowers at or near the crown.',
       image: '/images/notocactus.jpg',
       price: 75.00,
       quantity: 5,
@@ -98,7 +98,7 @@ async function seed() {
 
     Succulent.create({
       name: 'Parodia Nivosa',
-      description: 'Parodia is a genus of flowering plants in the cactus family Cactaceae, native to the uplands of Argentina, Peru, Bolivia, Brazil, Colombia and Uruguay. This genus has about 50 species, many of which have been transferred from Eriocactus, Notocactus and Wigginsia. They range from small globose plants to 1 m (3 ft) tall columnar cacti. All are deeply ribbed and spiny, with single flowers at or near the crown. Some species produce offsets at the base. They are popular in cultivation, but must be grown indoors where temperatures fall below 10 °C (50 °F). The genus is named after Domingo Parodi, one of the early investigators of the flora of Paraguay',
+      description: 'Parodia is a genus of flowering plants in the cactus family Cactaceae, native to the uplands of Argentina, Peru, Bolivia, Brazil, Colombia and Uruguay. This genus has about 50 species, many of which have been transferred from Eriocactus, Notocactus and Wigginsia.',
       image: '/images/parodia-nivosa.jpg',
       price: 99.99,
       quantity: 20,
@@ -109,7 +109,7 @@ async function seed() {
 
     Succulent.create({
       name: 'Rubutia Kupperiana',
-      description: 'Rebutia is a genus in the family Cactaceae, native to Bolivia and Argentina. They are generally small, colorful cacti, globular in form, which freely produce flowers that are relatively large in relation to the body. They have no distinctive ribs, but do have regularly arranged small tubercles. They are considered fairly easy to grow and they may produce large quantities of seeds that germinate freely around the parent plant.',
+      description: 'Rebutia is a genus in the family Cactaceae, native to Bolivia and Argentina. They are generally small, colorful cacti, globular in form, which freely produce flowers that are relatively large in relation to the body.',
       image: '/images/rebutia-kupperiana.jpg',
       price: 100.00,
       quantity: 2,
@@ -131,7 +131,7 @@ async function seed() {
 
     Succulent.create({
       name: 'Euphoribia Avasmontana',
-      description: `The plants share the feature of having a poisonous, milky, white, latex-like sap, and unusual and unique floral structures. The genus may be described by properties of its members' gene sequences, or by the shape and form (morphology) of its heads of flowers. When viewed as a whole, the head of flowers looks like a single flower (a pseudanthium. It has a unique kind of pseudanthium, called a cyathium, where each flower in the head is reduced to its barest essential part needed for sexual reproduction. `,
+      description: `The plants share the feature of having a poisonous, milky, white, latex-like sap, and unusual and unique floral structures. The genus may be described by properties of its members' gene sequences, or by the shape and form (morphology) of its heads of flowers.`,
       image: '/images/euphoribia-avasmontana.jpg',
       price: 70.00,
       quantity: 30,
@@ -142,7 +142,7 @@ async function seed() {
 
     Succulent.create({
       name: 'Sulcorebutia Rauschii',
-      description: 'Rebutia is a genus in the family Cactaceae, native to Bolivia and Argentina. They are generally small, colorful cacti, globular in form, which freely produce flowers that are relatively large in relation to the body. They have no distinctive ribs, but do have regularly arranged small tubercles. They are considered fairly easy to grow and they may produce large quantities of seeds that germinate freely around the parent plant.',
+      description: 'Rebutia is a genus in the family Cactaceae, native to Bolivia and Argentina. They are generally small, colorful cacti, globular in form, which freely produce flowers that are relatively large in relation to the body.',
       image: '/images/sulcorebutia-rauschii.jpg',
       price: 30.50,
       quantity: 32,
