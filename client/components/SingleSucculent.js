@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { Link } from 'react-router-dom'
 import { fetchOneSucculent } from '../store/singleSucculent'
+import Reviews from './Reviews'
 
 class SingleSucculent extends Component {
 
@@ -19,7 +19,6 @@ class SingleSucculent extends Component {
   }
 
   handleClick() {
-
     this.setState(prevState => ({
       toggle: !prevState.toggle
     }))
@@ -68,29 +67,30 @@ class SingleSucculent extends Component {
                         )
                     }
                   </div>
-                    {
-                      this.state.toggle
-                      ?
-                        (
-                          <div>
-                            <p>{singleSucculent.description}</p>
-                          </div>
-                        )
-                      :
-                        (
-                          <div>
-                            <p><b>Family:</b> {singleSucculent.family}</p>
-                            <p><b>Genus: </b>{singleSucculent.genus}</p>
-                            <p><b>Species:</b> {singleSucculent.species}</p>
-                          </div>
-                        )
-                    }
+                  {
+                    this.state.toggle
+                    ?
+                      (
+                        <div>
+                          <p>{singleSucculent.description}</p>
+                        </div>
+                      )
+                    :
+                      (
+                        <div>
+                          <p><b>Family:</b> {singleSucculent.family}</p>
+                          <p><b>Genus: </b>{singleSucculent.genus}</p>
+                          <p><b>Species:</b> {singleSucculent.species}</p>
+                        </div>
+                      )
+                  }
               </div>
              </div>
             </div>
           : <p>🚫🌵 Sorry! No succulent to see here! 🚫🌵</p>
         }
         </div>
+        <Reviews />
       </div>
     )
   }

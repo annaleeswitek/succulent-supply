@@ -9,7 +9,7 @@ const Review = db.define('review', {
     }
   },
   rating: {
-    type: Sequelize.INTEGER,
+    type: Sequelize.DECIMAL,
     validate: {
         min: 0,
         max: 5
@@ -20,7 +20,18 @@ const Review = db.define('review', {
     validate: {
         len: [10, 500]
     }
-  }
+  },
+  author: {
+    type: Sequelize.STRING,
+    defaultValue: 'anon'
+  },
+
 })
+
+// Instance Methods
+
+Review.prototype.findWhenPosted = function () {
+  // this is an instance method that returns how long ago the review was posted
+}
 
 module.exports = Review;

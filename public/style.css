@@ -149,3 +149,18 @@ nav {
   text-decoration: underline;
   color: #B3D6AD;
 }
+
+.reviews-wrapper {
+  display: flex;
+  justify-content: space-between;
+}
+
+.reviews-box {
+  margin-left: 145px;
+  margin-right: 145px;
+  /* border: solid; */
+}
+
+.reviews-title {
+  font-size: 35px;
+}

@@ -1,7 +1,7 @@
 'use strict'
 
 const db = require('../server/db')
-const { User, Succulent } = require('../server/db/models')
+const { User, Succulent, Review } = require('../server/db/models')
 
 async function seed() {
   await db.sync({force: true})
@@ -30,7 +30,7 @@ async function seed() {
 
     Succulent.create({
       name: 'Echeveria',
-      description: 'Plants may be evergreen or deciduous. Flowers on short stalks (cymes) arise from compact rosettes of succulent fleshy, often brightly coloured leaves.[2] Species are polycarpic, meaning that they may flower and set seed many times over the course of their lifetimes. Often numerous offsets are produced, and are commonly known as "hen and chicks", which can also refer to other genera, such as Sempervivum, that are significantly different from Echeveria. Many species of Echeveria serve important environmental roles, such as those of host plants for butterflies. For example, the butterfly Callophrys xami uses several species of Echeveria, such as Echevelia gibbiflora, for suitable host plants. Even more, these plants are integral to the oviposition process of C. xami and some other butterfly species as well',
+      description: 'Plants may be evergreen or deciduous. Flowers on short stalks (cymes) arise from compact rosettes of succulent fleshy, often brightly coloured leaves.[2] Species are polycarpic, meaning that they may flower and set seed many times over the course of their lifetimes. Often numerous offsets are produced, and are commonly known as "hen and chicks", which can also refer to other genera, such as Sempervivum, that are significantly different from Echeveria.',
       image: '/images/echeveria.jpg',
       price: 6.99,
       quantity: 50,
@@ -52,7 +52,7 @@ async function seed() {
 
     Succulent.create({
       name: 'String of Pearls',
-      description: 'Senecio rowleyanus receives its common name from specialized leaves which are the size and shape of small peas (about ​1⁄4 inch diameter).Its trailing stems can grow 2–3 feet (60–90 cm). There is a small tip on at the distal point of each leaf and a thin band of dark green tissue on the side known as a "window" (see below). It blooms during the summer and, like all asterids, it has a compound flower. The trumpet shaped flower forms clusters (about ​1⁄2 inch diameter) of small white flowers with colorful stamens. The flower will last about a month and is said to smell like cinnamon and other spices.',
+      description: 'Senecio rowleyanus receives its common name from specialized leaves which are the size and shape of small peas (about ​1⁄4 inch diameter).Its trailing stems can grow 2–3 feet (60–90 cm). There is a small tip on at the distal point of each leaf and a thin band of dark green tissue on the side known as a "window" (see below).',
       image: '/images/string-of-pearls.jpg',
       price: 9.50,
       quantity: 60,
@@ -131,7 +131,7 @@ async function seed() {
 
     Succulent.create({
       name: 'Euphoribia Avasmontana',
-      description: `The plants share the feature of having a poisonous, milky, white, latex-like sap, and unusual and unique floral structures.[3] The genus may be described by properties of its members' gene sequences, or by the shape and form (morphology) of its heads of flowers. When viewed as a whole, the head of flowers looks like a single flower (a pseudanthium). It has a unique kind of pseudanthium, called a cyathium, where each flower in the head is reduced to its barest essential part needed for sexual reproduction. The individual flowers are either male or female, with the male flowers reduced to only the stamen, and the females to the pistil.[3] These flowers have no sepals, petals, or other parts that are typical of flowers in other kinds of plants. Structures supporting the flower head and beneath have evolved to attract pollinators with nectar, and with shapes and colors that function the way petals and other flower parts do in other flowers. It is the only genus of plants that has all three kinds of photosynthesis, CAM, C3, and C4.`,
+      description: `The plants share the feature of having a poisonous, milky, white, latex-like sap, and unusual and unique floral structures. The genus may be described by properties of its members' gene sequences, or by the shape and form (morphology) of its heads of flowers. When viewed as a whole, the head of flowers looks like a single flower (a pseudanthium. It has a unique kind of pseudanthium, called a cyathium, where each flower in the head is reduced to its barest essential part needed for sexual reproduction. `,
       image: '/images/euphoribia-avasmontana.jpg',
       price: 70.00,
       quantity: 30,
@@ -154,11 +154,32 @@ async function seed() {
 
   console.log(`seeded ${succulents.length} succulents`)
   console.log(`seeded successfully`)
+
+  const reviews = await Promise.all([
+    Review.create({
+      title: 'This succulent is amazing!',
+      rating: 5,
+      body: 'Wow! This succulent was everything I could have dreamed up and MORE!',
+      author: 'Annalee'
+    }),
+    Review.create({
+      title: 'Not sure, it was just OK',
+      rating: 3.5,
+      body: 'I was under the impression this succulent was able to fly, but it just sits there. Meh.',
+      author: 'Some disgruntled person'
+    })
+  ])
+
+  console.log(`seeded ${reviews.length} reviews`)
+  console.log(`seeded successfully`)
+
+  const addReviewsToSucculents = await Promise.all([
+    Review.findById(1).then(review => review.setSucculent(1)),
+    Review.findById(2).then(review => review.setSucculent(1))
+  ]);
+
+  console.log(`seeded ${addReviewsToSucculents.length} reviews for specific succulents`);
 }
-
-
-
-
 
 async function runSeed() {
   console.log('seeding...')
