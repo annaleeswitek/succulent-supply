@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { fetchSucculents } from '../store/succulents'
 import SingleSuccCard from './SingleSuccCard'
+import Filter from './Filter'
 
 class SucculentList extends Component {
   componentDidMount(){
@@ -11,14 +12,19 @@ class SucculentList extends Component {
   render () {
     const { succulents } = this.props
     return (
-      <div className="products-wrapper">
-        <div className="products-box">
-          <div className="products">
-            {
-              succulents.length
-                ? succulents.map(succ => <SingleSuccCard succulent={succ} key={succ.id} />)
-                : <div><h2>🚫🌵 Sorry! No succulents to see here! 🚫🌵</h2></div>
-            }
+      <div>
+        <div>
+          <Filter />
+        </div>
+        <div className="products-wrapper">
+          <div className="products-box">
+            <div className="products">
+              {
+                succulents.length
+                  ? succulents.map(succ => <SingleSuccCard succulent={succ} key={succ.id} />)
+                  : <div><h2>🚫🌵 Sorry! No succulents to see here! 🚫🌵</h2></div>
+              }
+            </div>
           </div>
         </div>
       </div>

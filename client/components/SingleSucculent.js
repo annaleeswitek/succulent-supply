@@ -30,65 +30,65 @@ class SingleSucculent extends Component {
     return (
       <div >
         <div>
-        {
-          singleSucculent.id
-          ? <div className="single-product-wrapper">
-              <div className="big-product-image">
-                <img src={singleSucculent.image} />
+          {
+            singleSucculent.id
+            ? <div className="single-product-wrapper">
+                <div className="big-product-image">
+                  <img src={singleSucculent.image} />
+                </div>
+                <div>
+                  <div className="description-box">
+                    <div className="karla-font product-title"><b>{singleSucculent.name}</b></div>
+                    <br />
+                    <div className="karla-font product-price">Price: ${singleSucculent.price}</div>
+                    <br />
+                    <div>Stars Go Here</div>
+                    <br />
+                    <div>Choose amount field goes here</div>
+                    <br />
+                    <button type="button">Add to Cart</button>
+                    <hr />
+                    <div>
+                      {
+                        this.state.toggle
+                        ?
+                          (
+                            <div className="info-options-box">
+                              <div className="selected" onClick={this.handleClick}><b>Description</b></div>
+                              <div onClick={this.handleClick}><b>Details</b></div>
+                            </div>
+                          )
+                        :
+                          (
+                            <div className="info-options-box">
+                              <div onClick={this.handleClick}><b>Description</b></div>
+                              <div className="selected" onClick={this.handleClick}><b>Details</b></div>
+                            </div>
+                          )
+                      }
+                    </div>
+                      {
+                        this.state.toggle
+                        ?
+                          (
+                            <div>
+                              <p>{singleSucculent.description}</p>
+                            </div>
+                          )
+                        :
+                          (
+                            <div>
+                              <p><b>Family:</b> {singleSucculent.family}</p>
+                              <p><b>Genus: </b>{singleSucculent.genus}</p>
+                              <p><b>Species:</b> {singleSucculent.species}</p>
+                            </div>
+                          )
+                      }
+                </div>
               </div>
-              <div>
-                <div className="description-box">
-                  <div className="karla-font product-title"><b>{singleSucculent.name}</b></div>
-                  <br />
-                  <div className="karla-font product-price">Price: ${singleSucculent.price}</div>
-                  <br />
-                  <div>Stars Go Here</div>
-                  <br />
-                  <div>Choose amount field goes here</div>
-                  <br />
-                  <button type="button">Add to Cart</button>
-                  <hr />
-                  <div>
-                    {
-                      this.state.toggle
-                      ?
-                        (
-                          <div className="info-options-box">
-                            <div className="selected" onClick={this.handleClick}><b>Description</b></div>
-                            <div onClick={this.handleClick}><b>Details</b></div>
-                          </div>
-                        )
-                      :
-                        (
-                          <div className="info-options-box">
-                            <div onClick={this.handleClick}><b>Description</b></div>
-                            <div className="selected" onClick={this.handleClick}><b>Details</b></div>
-                          </div>
-                        )
-                    }
-                  </div>
-                  {
-                    this.state.toggle
-                    ?
-                      (
-                        <div>
-                          <p>{singleSucculent.description}</p>
-                        </div>
-                      )
-                    :
-                      (
-                        <div>
-                          <p><b>Family:</b> {singleSucculent.family}</p>
-                          <p><b>Genus: </b>{singleSucculent.genus}</p>
-                          <p><b>Species:</b> {singleSucculent.species}</p>
-                        </div>
-                      )
-                  }
               </div>
-             </div>
-            </div>
-          : <p>🚫🌵 Sorry! No succulent to see here! 🚫🌵</p>
-        }
+            : <p>🚫🌵 Sorry! No succulent to see here! 🚫🌵</p>
+          }
         </div>
         <Reviews />
       </div>

@@ -43,6 +43,8 @@ nav {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  align-items: center;
+
 }
 
 .logo-img {
@@ -57,6 +59,7 @@ nav {
 
 .products-wrapper {
   display: flex;
+  margin-top: 50px;
   margin-left: 200px;
   margin-right: 200px;
 }
@@ -66,6 +69,7 @@ nav {
 	flex-direction: row wrap;
 	width: 100%;
 }
+
 .products {
 	display: flex;
   flex-wrap: wrap;
@@ -113,13 +117,13 @@ nav {
 }
 
 .big-product-image img {
-  height: 400px;
-  width: 400px;
+  height: 475px;
+  width: 475px;
   margin: 75px;
 }
 
 .description-box {
-  height: 400px;
+  height: 475px;
   width: 600px;
   /* border: solid; */
   padding: 20px;
@@ -158,9 +162,23 @@ nav {
 .reviews-box {
   margin-left: 145px;
   margin-right: 145px;
+  padding: 50px;
   /* border: solid; */
 }
 
 .reviews-title {
   font-size: 35px;
 }
+
+.filter-box {
+  height: 100px;
+  border: solid;
+  margin-top: 50px;
+  margin-left: 200px;
+  margin-right: 200px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+

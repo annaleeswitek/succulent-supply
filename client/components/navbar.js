@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { logout } from '../store'
+import Search from './Search'
 
 const Navbar = ({handleClick, isLoggedIn}) => (
   <div>
@@ -15,8 +16,9 @@ const Navbar = ({handleClick, isLoggedIn}) => (
             SUCCULENT SUPPLY
           </h1>
         </Link>
-        <img src='/images/logo.jpg' className="logo-img" />
       </div>
+
+      <Search />
 
       {isLoggedIn ? (
         <div>
@@ -31,10 +33,11 @@ const Navbar = ({handleClick, isLoggedIn}) => (
           {/* shown before log in */}
           <Link to="/login" style={{ textDecoration: 'none', color: 'black' }} className="karla-font nav-links">Login</Link>
           <Link to="/signup" style={{ textDecoration: 'none', color: 'black' }} className="karla-font nav-links">Sign Up</Link>
+          <Link to="/signup" style={{ textDecoration: 'none', color: 'black' }} className="karla-font nav-links">🛒 Cart</Link>
         </div>
       )}
     </nav>
-    <hr />
+
   </div>
 )
 

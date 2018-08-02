@@ -15,6 +15,7 @@ const SingleSuccCard = (props) => {
 				<span><b>{succulent.name}</b></span> <br />
 				<span>Price: ${succulent.price}</span>
 			</div>
+      <button type="button">Add to Cart</button>
 		</div>
 	)
 }
