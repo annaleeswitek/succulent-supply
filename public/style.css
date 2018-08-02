@@ -60,7 +60,7 @@ nav {
 .products-wrapper {
   display: flex;
   margin-top: 50px;
-  margin-left: 200px;
+  margin-left: 100px;
   margin-right: 200px;
 }
 
@@ -170,15 +170,18 @@ nav {
   font-size: 35px;
 }
 
-.filter-box {
-  height: 100px;
-  border: solid;
-  margin-top: 50px;
-  margin-left: 200px;
-  margin-right: 200px;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
+.center {
+  text-align: center;
 }
 
+.sidebar-wrapper {
+  height: 100%;
+  margin-right: 50px;
+  padding: 10px;
+}
+
+.filter-category-box {
+  display: flex;
+  flex-direction: row;
+}
 

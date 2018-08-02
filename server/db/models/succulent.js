@@ -53,7 +53,7 @@ const Succulent = db.define('succulent', {
     type: Sequelize.BOOLEAN
   },
   cuteness: {
-    type: Sequelize.ENUM('shockingly cute', 'very cute', 'only moderately cute'),
+    type: Sequelize.ENUM('widly cute', 'very cute', 'kinda cute'),
     defaultValue: 'shockingly cute'
   },
   sunNeeds: {
