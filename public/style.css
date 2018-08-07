@@ -174,7 +174,10 @@ nav {
   text-align: center;
 }
 
+/* Sidebar */
+
 .sidebar-wrapper {
+  width: 500px;
   height: 100%;
   margin-right: 50px;
   padding: 10px;
@@ -182,6 +185,16 @@ nav {
 
 .filter-category-box {
   display: flex;
+  flex-direction: column;
+}
+
+.check-box-box {
+  display: flex;
   flex-direction: row;
+  flex-wrap: nowrap;
+}
+
+.checkbox {
+  margin-right: 10px;
 }
 

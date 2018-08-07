@@ -10,6 +10,10 @@ class SucculentList extends Component {
     this.props.fetchSucculents()
   }
   render () {
+    console.log('this.props.selectedFilters:', this.props.selectedFilters)
+
+    // conditionally render the library based on which filters are selected.
+
     const { succulents } = this.props
     return (
       <div>
@@ -32,7 +36,8 @@ class SucculentList extends Component {
 
 const mapState = state => {
   return {
-    succulents: state.succulents
+    succulents: state.succulents,
+    selectedFilters: state.selectedFilters
   }
 }
 
@@ -41,7 +46,7 @@ const mapDispatch = dispatch => {
 		fetchSucculents: () => {
 			const thunk = fetchSucculents()
 			dispatch(thunk)
-		}
+    }
   }
 }
 

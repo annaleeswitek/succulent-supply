@@ -5,8 +5,10 @@ import { composeWithDevTools } from 'redux-devtools-extension'
 import user from './user'
 import succulents from './succulents'
 import singleSucculent from './singleSucculent'
+import selectedFilters from './filter'
 
-const reducer = combineReducers({ user, succulents, singleSucculent })
+const reducer = combineReducers({ user, succulents, singleSucculent, selectedFilters })
+
 const middleware = composeWithDevTools(
   applyMiddleware(thunkMiddleware, createLogger({ collapsed: true }))
 )
