@@ -16,7 +16,6 @@ router.get('/:categoryId', async (req, res, next) => {
     const category = await Category.findById(req.params.categoryId, {
       include: SubCategory
     })
-f
     res.json(category)
   } catch (err) {
     next (err)

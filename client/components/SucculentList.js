@@ -10,11 +10,10 @@ class SucculentList extends Component {
     this.props.fetchSucculents()
   }
   render () {
-    console.log('this.props.selectedFilters:', this.props.selectedFilters)
-
-    // conditionally render the library based on which filters are selected.
-
-    const { succulents } = this.props
+    const { succulents, selectedFilters, selectedSucculents } = this.props
+    console.log('succulents:', succulents)
+    console.log('selectedFilters:', selectedFilters)
+    console.log('selectedSucculents', selectedSucculents)
     return (
       <div>
         <div className="products-wrapper">
@@ -22,8 +21,10 @@ class SucculentList extends Component {
             <SideBar />
             <div className="products">
               {
-                succulents.length
-                  ? succulents.map(succ => <SingleSuccCard succulent={succ} key={succ.id} />)
+                selectedSucculents.length
+                  ? selectedSucculents.map(succ => {
+                    return <SingleSuccCard succulent={succ} key={succ.id} />
+                  })
                   : <div><h2>🚫🌵 Sorry! No succulents to see here! 🚫🌵</h2></div>
               }
             </div>
@@ -37,7 +38,8 @@ class SucculentList extends Component {
 const mapState = state => {
   return {
     succulents: state.succulents,
-    selectedFilters: state.selectedFilters
+    selectedFilters: state.selectedFilters,
+    selectedSucculents: state.selectedSucculents
   }
 }
 

@@ -24,7 +24,7 @@ export const fetchSucculents = () => {
 export default function(state = [], action) {
 	switch (action.type) {
 		case GET_SUCCS:
-			return action.succulents
+      return action.succulents
 		default:
 			return state
 	}

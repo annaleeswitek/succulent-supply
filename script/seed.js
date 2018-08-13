@@ -1,7 +1,7 @@
 'use strict'
 
 const db = require('../server/db')
-const { User, Succulent, Review, Category, SubCategory } = require('../server/db/models')
+const { User, Succulent, Review } = require('../server/db/models')
 
 async function seed() {
   await db.sync({force: true})
@@ -26,7 +26,8 @@ async function seed() {
       family: 'Asphodelaceae' ,
       genus: 'Haworthia',
       species: 'Attenuata',
-      isCactus: false}),
+      isCactus: false,
+      cuteness: 'wildly cute'}),
 
     Succulent.create({
         name: 'Echeveria',
@@ -37,7 +38,8 @@ async function seed() {
         family: 'Crassulaceae',
         genus: 'Echeveria',
         species: 'Echevelia gibbiflora',
-        isCactus: false}),
+        isCactus: false,
+        cuteness: 'wildly cute'}),
 
       Succulent.create({
         name: 'Flowering Kalanchoe',
@@ -48,7 +50,8 @@ async function seed() {
         family: 'Crassulaceae',
         genus: 'Kalanchoe',
         species: 'Kalanchoe blossfeldiana',
-        isCactus: false}),
+        isCactus: false,
+        cuteness: 'wildly cute'}),
 
       Succulent.create({
         name: 'String of Pearls',
@@ -59,7 +62,8 @@ async function seed() {
         family: 'Asteraceae',
         genus: 'Senecio',
         species: 'S. rowleyanus',
-        isCactus: false}),
+        isCactus: false,
+        cuteness: 'wildly cute'}),
 
       Succulent.create({
         name: 'Lithops',
@@ -70,7 +74,8 @@ async function seed() {
         family: 'Aizoaceae',
         genus: 'Lithops',
         species: 'Assorted Types',
-        isCactus: false}),
+        isCactus: false,
+        cuteness: 'somewhat cute'}),
 
       Succulent.create({
         name: 'Crown of Thorns',
@@ -81,7 +86,8 @@ async function seed() {
         family: 'Euphorbiaceae',
         genus: 'Euphorbia',
         species: 'E. milii',
-        isCactus: false}),
+        isCactus: false,
+        cuteness: 'somewhat cute'}),
 
     // Cacti
 
@@ -94,7 +100,8 @@ async function seed() {
         family: 'Cactaceae',
         genus: 'Parodia',
         species: 'Notocactus',
-        isCactus: true}),
+        isCactus: true,
+        cuteness: 'somewhat cute'}),
 
       Succulent.create({
         name: 'Parodia Nivosa',
@@ -105,7 +112,8 @@ async function seed() {
         family: 'Cactaceae',
         genus: 'Parodia',
         species: 'Parodia Nivosa',
-        isCactus: true}),
+        isCactus: true,
+        cuteness: 'somewhat cute'}),
 
       Succulent.create({
         name: 'Rubutia Kupperiana',
@@ -116,7 +124,8 @@ async function seed() {
         family: 'Cactaceae',
         genus: 'Rebutia',
         species: 'Rubutia Kupperiana',
-        isCactus: true}),
+        isCactus: true,
+        cuteness: 'just cuteish'}),
 
       Succulent.create({
         name: 'Fralea Castanea',
@@ -127,7 +136,8 @@ async function seed() {
         family: 'Cactaceae',
         genus: 'Frailea',
         species: 'Fralea Castanea',
-        isCactus: true}),
+        isCactus: true,
+        cuteness: 'just cuteish'}),
 
       Succulent.create({
         name: 'Euphoribia Avasmontana',
@@ -138,7 +148,8 @@ async function seed() {
         family: 'Euphorbiaceae',
         genus: 'Euphorbia',
         species: 'Euphoribia Avasmontana',
-        isCactus: true}),
+        isCactus: true,
+        cuteness: 'just cuteish'}),
 
       Succulent.create({
         name: 'Sulcorebutia Rauschii',
@@ -149,7 +160,8 @@ async function seed() {
         family: 'Cactaceae',
         genus: 'Rebutia',
         species: 'Sulcorebutia Rauschii',
-        isCactus: true}),
+        isCactus: true,
+        cuteness: 'just cuteish'}),
     ])
 
     console.log(`seeded ${succulents.length} succulents`)
@@ -181,50 +193,6 @@ async function seed() {
     console.log(`seeded ${addReviewsToSucculents.length} reviews for specific succulents`);
     console.log(`seeded successfully`)
 
-    const categories = await Promise.all([
-      Category.create({
-        name: 'Cuteness',
-        emoji: '💕'
-      }),
-      Category.create({
-        name: 'Sun',
-        emoji: '☀️'
-      }),
-      Category.create({
-        name: 'Cacti',
-        emoji: '🌵'
-      }),
-      Category.create({
-        name: 'Staff Favorites',
-        emoji: '🙌'
-      })
-    ])
-    console.log(`seeded ${categories.length} categories`)
-    console.log(`seeded successfully`)
-
-    const subcategories = await Promise.all([
-      SubCategory.create({
-        name: 'wildly cute'
-      }),
-      SubCategory.create({
-        name: 'very cute'
-      }),
-      SubCategory.create({
-        name: 'somewhat cute'
-      })
-    ])
-
-    console.log(`seeded ${subcategories.length} subcategories`)
-    console.log(`seeded successfully`)
-
-    const addSubCategoriesToCategories = await Promise.all([
-      SubCategory.findById(1).then(subcategory => subcategory.setCategory(1)),
-      SubCategory.findById(2).then(subcategory => subcategory.setCategory(1)),
-      SubCategory.findById(3).then(subcategory => subcategory.setCategory(1)),
-    ]);
-
-    console.log(`seeded ${addSubCategoriesToCategories.length} subcategories added to categories`)
-    console.log(`seeded successfully`)
 
   }
 

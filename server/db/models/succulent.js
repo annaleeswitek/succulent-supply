@@ -48,6 +48,10 @@ const Succulent = db.define('succulent', {
     validate: {
       notEmpty: true
     }
+  },
+  cuteness: {
+    type: Sequelize.ENUM('wildly cute', 'somewhat cute', 'just cuteish'),
+    defaultValue: 'somewhat cute'
   }
 })
 
