@@ -27,6 +27,7 @@ async function seed() {
       genus: 'Haworthia',
       species: 'Attenuata',
       isCactus: false,
+      sunNeeds: 'direct sun',
       cuteness: 'wildly cute'}),
 
     Succulent.create({
@@ -39,6 +40,7 @@ async function seed() {
         genus: 'Echeveria',
         species: 'Echevelia gibbiflora',
         isCactus: false,
+        sunNeeds: 'partial sun',
         cuteness: 'wildly cute'}),
 
       Succulent.create({
@@ -51,6 +53,7 @@ async function seed() {
         genus: 'Kalanchoe',
         species: 'Kalanchoe blossfeldiana',
         isCactus: false,
+        sunNeeds: 'shade',
         cuteness: 'wildly cute'}),
 
       Succulent.create({
@@ -62,6 +65,7 @@ async function seed() {
         family: 'Asteraceae',
         genus: 'Senecio',
         species: 'S. rowleyanus',
+        sunNeeds: 'direct sun',
         isCactus: false,
         cuteness: 'wildly cute'}),
 
@@ -74,6 +78,7 @@ async function seed() {
         family: 'Aizoaceae',
         genus: 'Lithops',
         species: 'Assorted Types',
+        sunNeeds: 'partial sun',
         isCactus: false,
         cuteness: 'somewhat cute'}),
 
@@ -87,6 +92,7 @@ async function seed() {
         genus: 'Euphorbia',
         species: 'E. milii',
         isCactus: false,
+        sunNeeds: 'shade',
         cuteness: 'somewhat cute'}),
 
     // Cacti
@@ -100,6 +106,7 @@ async function seed() {
         family: 'Cactaceae',
         genus: 'Parodia',
         species: 'Notocactus',
+        sunNeeds: 'direct sun',
         isCactus: true,
         cuteness: 'somewhat cute'}),
 
@@ -112,6 +119,7 @@ async function seed() {
         family: 'Cactaceae',
         genus: 'Parodia',
         species: 'Parodia Nivosa',
+        sunNeeds: 'partial sun',
         isCactus: true,
         cuteness: 'somewhat cute'}),
 
@@ -124,6 +132,7 @@ async function seed() {
         family: 'Cactaceae',
         genus: 'Rebutia',
         species: 'Rubutia Kupperiana',
+        sunNeeds: 'shade',
         isCactus: true,
         cuteness: 'just cuteish'}),
 
@@ -137,6 +146,7 @@ async function seed() {
         genus: 'Frailea',
         species: 'Fralea Castanea',
         isCactus: true,
+        sunNeeds: 'direct sun',
         cuteness: 'just cuteish'}),
 
       Succulent.create({
@@ -149,6 +159,7 @@ async function seed() {
         genus: 'Euphorbia',
         species: 'Euphoribia Avasmontana',
         isCactus: true,
+        sunNeeds: 'partial sun',
         cuteness: 'just cuteish'}),
 
       Succulent.create({
@@ -160,6 +171,7 @@ async function seed() {
         family: 'Cactaceae',
         genus: 'Rebutia',
         species: 'Sulcorebutia Rauschii',
+        sunNeeds: 'shade',
         isCactus: true,
         cuteness: 'just cuteish'}),
     ])
@@ -192,8 +204,6 @@ async function seed() {
 
     console.log(`seeded ${addReviewsToSucculents.length} reviews for specific succulents`);
     console.log(`seeded successfully`)
-
-
   }
 
 async function runSeed() {

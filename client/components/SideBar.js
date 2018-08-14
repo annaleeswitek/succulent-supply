@@ -12,17 +12,23 @@ class SideBar extends Component {
 
   handleCheck (event) {
     const selectedFilter = event.target.value
-
+    // this logic works if this.state.selectedFilters === 0, but not if it it > 0.
     if (event.target.checked === true) {
 
       this.props.addFilter(selectedFilter)
 
       this.props.succulents.map(succ => {
-        if (succ.cuteness === selectedFilter){
-          this.props.selectSucculent(succ)
+
+        if(!this.props.selectedSucculents.includes(succ)){
+          if (succ.cuteness === selectedFilter){
+            this.props.selectSucculent(succ)
+          } else if  (succ.sunNeeds === selectedFilter){
+            this.props.selectSucculent(succ)
+          } else if (succ.isCactus.toString() === selectedFilter){
+            this.props.selectSucculent(succ)
+          }
         }
       })
-
     } else {
       this.props.removeFilter(selectedFilter)
 
@@ -30,9 +36,14 @@ class SideBar extends Component {
         if (succ.cuteness === selectedFilter){
           this.props.deselectSucculent(succ)
         }
+        if (succ.sunNeeds === selectedFilter){
+          this.props.deselectSucculent(succ)
+        }
+        if (succ.isCactus.toString() === selectedFilter){
+          this.props.deselectSucculent(succ)
+        }
       })
     }
-
   }
 
   render () {
@@ -44,7 +55,7 @@ class SideBar extends Component {
         <hr />
         <form>
           <div className="filter-category-box">
-            <h4>💕 Cuteness</h4>
+            <h4>💕 How Cute?</h4>
             <div className="check-box-box">
               <input
                 value="wildly cute"
@@ -71,6 +82,57 @@ class SideBar extends Component {
                   className="checkbox"
                 />
                 <h5>just cuteish</h5>
+            </div>
+          </div>
+          <div className="filter-category-box">
+            <h4>☀️ Sun Needs</h4>
+            <div className="check-box-box">
+              <input
+                value="direct sun"
+                onChange={this.handleCheck}
+                type="checkbox"
+                className="checkbox"
+              />
+              <h5>direct sun</h5>
+              </div>
+              <div className="check-box-box">
+                <input
+                  value="partial sun"
+                  onChange={this.handleCheck}
+                  type="checkbox"
+                  className="checkbox"
+                />
+                <h5>partial sun</h5>
+            </div>
+            <div className="check-box-box">
+                <input
+                  value="shade"
+                  onChange={this.handleCheck}
+                  type="checkbox"
+                  className="checkbox"
+                />
+                <h5>shade</h5>
+            </div>
+          </div>
+          <div className="filter-category-box">
+            <h4>🌵 Cactus?</h4>
+            <div className="check-box-box">
+              <input
+                value={true}
+                onChange={this.handleCheck}
+                type="checkbox"
+                className="checkbox"
+              />
+              <h5>yes</h5>
+              </div>
+              <div className="check-box-box">
+                <input
+                  value={false}
+                  onChange={this.handleCheck}
+                  type="checkbox"
+                  className="checkbox"
+                />
+                <h5>no</h5>
             </div>
           </div>
         </form>

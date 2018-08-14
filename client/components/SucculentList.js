@@ -20,12 +20,15 @@ class SucculentList extends Component {
           <div className="products-box">
             <SideBar />
             <div className="products">
+
               {
                 selectedSucculents.length
                   ? selectedSucculents.map(succ => {
                     return <SingleSuccCard succulent={succ} key={succ.id} />
                   })
-                  : <div><h2>🚫🌵 Sorry! No succulents to see here! 🚫🌵</h2></div>
+                  : succulents.map((succ) => {
+                    return <SingleSuccCard succulent={succ} key={succ.id} />
+                  })
               }
             </div>
           </div>
@@ -34,6 +37,8 @@ class SucculentList extends Component {
     )
   }
 }
+
+// <div><h2>🚫🌵 Sorry! No succulents to see here! 🚫🌵</h2></div>
 
 const mapState = state => {
   return {

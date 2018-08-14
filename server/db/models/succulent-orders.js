@@ -11,7 +11,7 @@ const OrderProducts = db.define('OrderProducts', {
 })
 
 OrderProducts.prototype.productTotal = () => {
-    return productPrice * productQuantity
+    return this.productPrice * this.productQuantity
 };
 
 module.exports = OrderProducts;
