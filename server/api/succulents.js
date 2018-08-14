@@ -1,5 +1,5 @@
 const router = require('express').Router()
-const { Succulent, Review, SubCategory, Category } = require('../db/models')
+const { Succulent, Review } = require('../db/models')
 module.exports = router
 
 router.get('/', async (req, res, next) => {
