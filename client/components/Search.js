@@ -5,7 +5,7 @@ class Search extends Component {
   constructor() {
     super()
     this.state = {
-      inputValue: ''
+
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -13,6 +13,7 @@ class Search extends Component {
   }
 
   handleChange(event) {
+
     console.log('event.target.value', event.target.value)
     this.setState({ inputValue: event.target.value })
   }
@@ -23,7 +24,7 @@ class Search extends Component {
   }
 
   render() {
-    const inputValue = this.state.inputValue.toLowerCase()
+    const inputValue = this.state.inputValue
 
     return (
       <div>

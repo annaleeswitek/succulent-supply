@@ -3,7 +3,6 @@ import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { fetchSucculents } from '../store/succulents'
 import SingleSuccCard from './SingleSuccCard'
-import SideBar from './SideBar'
 
 class SucculentList extends Component {
   componentDidMount(){
@@ -18,9 +17,7 @@ class SucculentList extends Component {
       <div>
         <div className="products-wrapper">
           <div className="products-box">
-            <SideBar />
             <div className="products">
-
               {
                 selectedSucculents.length
                   ? selectedSucculents.map(succ => {
