@@ -4,12 +4,9 @@ import { connect } from 'react-redux'
 class Search extends Component {
   constructor() {
     super()
-    this.state = {
 
-    };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
-
   }
 
   handleChange(event) {

@@ -6,12 +6,9 @@ const Order = db.define('order', {
         type: Sequelize.FLOAT,
         defaultValue: 0.00
     },
-    quantityOfItems: {
-        type: Sequelize.INTEGER
-    },
     status: {
-        type: Sequelize.ENUM('Pending', 'Created', 'Shipped', 'Delivered', 'Return Pending', 'Return Complete'),
-        defaultValue: 'Pending'
+        type: Sequelize.ENUM('cart', 'paid'),
+        defaultValue: 'cart'
     }
 })
 

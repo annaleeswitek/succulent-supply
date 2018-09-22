@@ -7,8 +7,9 @@ import succulents from './succulents'
 import singleSucculent from './singleSucculent'
 import selectedFilters from './filter'
 import selectedSucculents from './selectedSucculents'
+import cartCount from './cartCount'
 
-const reducer = combineReducers({ user, succulents, singleSucculent, selectedFilters, selectedSucculents })
+const reducer = combineReducers({ user, succulents, singleSucculent, selectedFilters, selectedSucculents, cartCount })
 
 const middleware = composeWithDevTools(
   applyMiddleware(thunkMiddleware, createLogger({ collapsed: true }))

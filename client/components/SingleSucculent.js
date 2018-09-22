@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { fetchOneSucculent } from '../store/singleSucculent'
 import Reviews from './Reviews'
+import AddToCartButton from './AddToCart'
 
 class SingleSucculent extends Component {
 
@@ -25,7 +26,6 @@ class SingleSucculent extends Component {
   }
 
   render(){
-    console.log('this.props: ', this.props)
     const { singleSucculent } = this.props
     return (
       <div >
@@ -46,7 +46,7 @@ class SingleSucculent extends Component {
                     <br />
                     <div>Choose amount field goes here</div>
                     <br />
-                    <button type="button">Add to Cart</button>
+                    <AddToCartButton succulent={singleSucculent}/>
                     <hr />
                     <div>
                       {

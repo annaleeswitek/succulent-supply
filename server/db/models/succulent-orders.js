@@ -1,17 +1,17 @@
 const Sequelize = require('sequelize')
 const db = require('../db')
 
-const OrderProducts = db.define('OrderProducts', {
-    productPrice: {
+const OrderSucculents = db.define('OrderSucculents', {
+    price: {
         type: Sequelize.INTEGER
     },
-    productQuantity: {
+    quantity: {
         type: Sequelize.INTEGER
     }
 })
 
-OrderProducts.prototype.productTotal = () => {
-    return this.productPrice * this.productQuantity
+OrderSucculents.prototype.productTotal = () => {
+    return this.succulentPrice * this.succulentQuantity
 };
 
-module.exports = OrderProducts;
+module.exports = OrderSucculents
