@@ -16,8 +16,7 @@ class AddToCartButton extends Component {
     if (!localStorage.getItem('cart')) {
       localStorage.setItem('cart',
         JSON.stringify({
-          succulents: [],
-          orderTotal: 0
+          succulents: []
         })
       )
     }
@@ -25,21 +24,28 @@ class AddToCartButton extends Component {
     const cart = JSON.parse(localStorage.getItem('cart'))
 
     let updatedSucculents = cart.succulents,
-      succulentToAdd = this.props.succulent,
-      total = 0
+      succulentToAdd = this.props.succulent
 
     updatedSucculents.push(succulentToAdd)
 
-    updatedSucculents.map(succ => {
-      total = total + Number(succ.price)
+    updatedSucculents.forEach(succ => {
+      if (succulentToAdd.name === succ.name) {
+        succ.quant++
+      }
     })
+
+    succulentToAdd.quant = 1;
+
+    const seen = {};
+    updatedSucculents = updatedSucculents.filter(function(item) {
+      return seen.hasOwnProperty(item.name) ? false : (seen[item.name] = true);
+    });
 
     localStorage.removeItem('cart')
     localStorage.setItem(
       'cart',
       JSON.stringify({
-        succulents: updatedSucculents,
-        orderTotal: total.toFixed(2)
+        succulents: updatedSucculents
       })
     )
 

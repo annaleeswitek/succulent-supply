@@ -170,7 +170,45 @@ nav {
   font-size: 35px;
 }
 
-.center {
-  text-align: center;
+.cart-wrapper {
+  display: flex;
+  justify-content: center;
+  margin: 50px;
 }
 
+.cart-box {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.cart-item {
+  text-align: center;
+  height: 200px;
+  width: 800px;
+  margin: 10px;
+  border: solid 1px grey;
+}
+
+.cart-image {
+	display: flex;
+  justify-content: flex-start;
+	align-items: center;
+  padding: 0 0 2rem 0;
+}
+
+.cart-image img {
+	height: 200px;
+	width: 200px;
+}
+
+.succ-name {
+  margin-left: 20px;
+}
+
+.cart-title {
+  margin-top: 50px;
+  text-align: center;
+}

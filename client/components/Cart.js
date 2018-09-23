@@ -1,15 +1,48 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 const Cart = () => {
-
+    const succulentsInCart = JSON.parse(localStorage.getItem('cart')).succulents;
+    let total = 0
+    succulentsInCart.map(succ => {
+      total = total + (Number(succ.price) * succ.quant)
+    })
     return (
-      <div className="karla-font">
-        <h1 className="center">👷‍♀️ Cart Component Under Construction 🚧</h1>
+      <div>
+        <div className="cart-title">
+        <hr />
+          <h1>Shopping Cart</h1>
+        </div>
+        <hr />
+        <div className="cart-wrapper">
+          <div className="cart-box">
+          {
+            succulentsInCart.map((succ, idx) => {
+              return (
+                <div className="cart-item" key={idx}>
+                  <div className="cart-image">
+                    <Link to={`/succulents/${succ.id}`}>
+                      <img src={succ.image} />
+                    </Link>
+                    <div className="succ-name">
+                      <p>{succ.name}</p>
+                    </div>
+                    <div>Quantity: {succ.quant}</div>
+                    <button type="button">X</button>
+                  </div>
+                </div>
+              )
+            })
+          }
+          </div>
+        </div>
+        <div className="cart-title">
+          <h1>Total: {total.toFixed(2)}</h1>
+          <button type="button">Checkout</button>
+        </div>
       </div>
     )
 }
 
 export default Cart;
 
-// console.log('succulents in the cart', JSON.parse(localStorage.getItem('cart')).succulents)
-// console.log('total price of succulents', JSON.parse(localStorage.getItem('cart')).orderTotal)
