@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { updateCartCount } from '../store/cartCount'
+import { incrementCartCount } from '../store/cartCount'
 
 class AddToCartButton extends Component {
 
@@ -49,7 +49,7 @@ class AddToCartButton extends Component {
       })
     )
 
-    this.props.updateCartCount((JSON.parse(localStorage.getItem('cart')).orderTotal))
+    this.props.incrementCartCount()
   }
 
   render () {
@@ -61,8 +61,8 @@ class AddToCartButton extends Component {
 
 const mapDispatch = dispatch => {
   return {
-    updateCartCount() {
-      dispatch(updateCartCount())
+    incrementCartCount() {
+      dispatch(incrementCartCount())
     }
   }
 }

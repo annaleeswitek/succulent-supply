@@ -2,31 +2,51 @@ import React, { Component }from 'react'
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { clearCartCount } from '../store/cartCount'
+import { updateCartCount } from '../store/cartCount'
 
 class Cart extends Component {
 
     constructor () {
       super()
       this.state = {
+        succulentsInCart: localStorage.getItem('cart') ? JSON.parse(localStorage.getItem('cart')).succulents : null
       }
       this.handleClearClick = this.handleClearClick.bind(this)
+      this.handleDeleteClick = this.handleDeleteClick.bind(this)
     }
 
     handleClearClick (event) {
-      event.preventDefault();
-      localStorage.clear();
+      event.preventDefault()
+      localStorage.clear()
       this.props.clearCartCount()
-      this.forceUpdate();
+      this.forceUpdate()
+    }
+
+    handleDeleteClick (event) {
+      event.preventDefault()
+      event.persist()
+      console.log(event.target.value)
+
+      const succulent = this.state.succulentsInCart.find(succ => succ.name === event.target.value)
+
+      this.setState((prevState) => ({
+        succulentsInCart: prevState.succulentsInCart.filter(succ => succ.name !== event.target.value)
+      }))
+      this.props.updateCartCount(succulent.quant)
+
+      localStorage.setItem(
+        'cart',
+        JSON.stringify({
+          succulents: this.state.succulentsInCart.filter(succ => succ.name !== event.target.value)
+        })
+      )
     }
 
     render () {
-      let succulentsInCart = []
       let total = 0
 
       if (localStorage.getItem('cart')){
-         succulentsInCart = JSON.parse(localStorage.getItem('cart')).succulents;
-
-        succulentsInCart.map(succ => {
+        this.state.succulentsInCart.map(succ => {
           total = total + (Number(succ.price) * succ.quant)
         })
       }
@@ -40,11 +60,11 @@ class Cart extends Component {
           <div className="cart-wrapper">
             <div className="cart-box">
             {
-              succulentsInCart.length
+              this.state.succulentsInCart && this.state.succulentsInCart.length
               ?
               <div>
                 {
-                  succulentsInCart.map((succ, idx) => {
+                  this.state.succulentsInCart.map((succ, idx) => {
                     return (
                       <div key={idx}>
                         <hr />
@@ -56,7 +76,7 @@ class Cart extends Component {
                             <p>{succ.name}</p>
                             <div>Quantity: {succ.quant}</div>
                             <div>Price: {(Number(succ.price) * succ.quant).toFixed(2)}</div>
-                            <button type="button">X</button>
+                            <button onClick={this.handleDeleteClick} value={succ.name} type="button">X</button>
                           </div>
                         </div>
                         <hr />
@@ -84,6 +104,9 @@ const mapDispatch = dispatch => {
   return {
     clearCartCount() {
       dispatch(clearCartCount())
+    },
+    updateCartCount(newCount) {
+      dispatch(updateCartCount(newCount))
     }
   }
 }
