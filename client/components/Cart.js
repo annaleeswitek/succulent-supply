@@ -1,8 +1,7 @@
 import React, { Component }from 'react'
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
-import { clearCartCount } from '../store/cartCount'
-import { updateCartCount } from '../store/cartCount'
+import { clearCartCount, updateCartCount, incrementCartCount, decrementCartCount } from '../store/cartCount'
 
 class Cart extends Component {
 
@@ -13,11 +12,14 @@ class Cart extends Component {
       }
       this.handleClearClick = this.handleClearClick.bind(this)
       this.handleDeleteClick = this.handleDeleteClick.bind(this)
+      this.handleIncrementQuant = this.handleIncrementQuant.bind(this)
+      this.handleDecrementQuant = this.handleDecrementQuant.bind(this)
     }
 
     handleClearClick (event) {
       event.preventDefault()
       localStorage.clear()
+      this.setState({ succulentsInCart: []})
       this.props.clearCartCount()
       this.forceUpdate()
     }
@@ -40,6 +42,22 @@ class Cart extends Component {
           succulents: this.state.succulentsInCart.filter(succ => succ.name !== event.target.value)
         })
       )
+    }
+
+    handleIncrementQuant (event) {
+      event.preventDefault()
+      const succulent = this.state.succulentsInCart.find(succ => succ.name === event.target.value)
+      succulent.quant++
+      this.props.incrementCartCount()
+      this.forceUpdate()
+    }
+
+    handleDecrementQuant (event) {
+      event.preventDefault()
+      const succulent = this.state.succulentsInCart.find(succ => succ.name === event.target.value)
+      succulent.quant--
+      this.props.decrementCartCount()
+      this.forceUpdate()
     }
 
     render () {
@@ -74,7 +92,9 @@ class Cart extends Component {
                               <img src={succ.image} />
                             </Link>
                             <p>{succ.name}</p>
-                            <div>Quantity: {succ.quant}</div>
+                            <button value={succ.name} onClick={this.handleIncrementQuant} type="button">+</button>
+                              <div>Quantity: {succ.quant}</div>
+                            <button value={succ.name} onClick={this.handleDecrementQuant} type="button">-</button>
                             <div>Price: {(Number(succ.price) * succ.quant).toFixed(2)}</div>
                             <button onClick={this.handleDeleteClick} value={succ.name} type="button">X</button>
                           </div>
@@ -107,6 +127,12 @@ const mapDispatch = dispatch => {
     },
     updateCartCount(newCount) {
       dispatch(updateCartCount(newCount))
+    },
+    incrementCartCount() {
+      dispatch(incrementCartCount())
+    },
+    decrementCartCount() {
+      dispatch(decrementCartCount())
     }
   }
 }
