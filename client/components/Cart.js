@@ -1,7 +1,6 @@
 import React, { Component }from 'react'
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
-// import ClearCart from './ClearCart'
 import { clearCartCount } from '../store/cartCount'
 
 class Cart extends Component {
@@ -10,10 +9,10 @@ class Cart extends Component {
       super()
       this.state = {
       }
-      this.handleClick = this.handleClick.bind(this)
+      this.handleClearClick = this.handleClearClick.bind(this)
     }
 
-    handleClick (event) {
+    handleClearClick (event) {
       event.preventDefault();
       localStorage.clear();
       this.props.clearCartCount()
@@ -31,7 +30,6 @@ class Cart extends Component {
           total = total + (Number(succ.price) * succ.quant)
         })
       }
-
       return (
         <div>
           <div className="cart-title">
@@ -57,7 +55,7 @@ class Cart extends Component {
                             </Link>
                             <p>{succ.name}</p>
                             <div>Quantity: {succ.quant}</div>
-                            <div>Price: {Number(succ.price) * succ.quant}</div>
+                            <div>Price: {(Number(succ.price) * succ.quant).toFixed(2)}</div>
                             <button type="button">X</button>
                           </div>
                         </div>
@@ -69,7 +67,7 @@ class Cart extends Component {
                 <div className="cart-title">
                   <h1>Total: {total.toFixed(2)}</h1>
                   <button type="button">Checkout</button>
-                  <button onClick={this.handleClick} type="button">Clear Cart</button>
+                  <button onClick={this.handleClearClick} type="button">Clear Cart</button>
                 </div>
               </div>
               :
@@ -80,7 +78,6 @@ class Cart extends Component {
         </div>
       )
     }
-
 }
 
 const mapDispatch = dispatch => {
