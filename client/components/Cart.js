@@ -55,7 +55,11 @@ class Cart extends Component {
     handleDecrementQuant (event) {
       event.preventDefault()
       const succulent = this.state.succulentsInCart.find(succ => succ.name === event.target.value)
-      succulent.quant--
+      if (succulent.quant > 1) {
+        succulent.quant--
+      } else {
+        this.handleDeleteClick(event)
+      }
       this.props.decrementCartCount()
       this.forceUpdate()
     }
