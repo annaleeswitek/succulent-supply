@@ -27,8 +27,8 @@ const Cart = () => {
                     <div className="succ-name">
                       <p>{succ.name}</p>
                     </div>
-                    <div>Quantity: {succ.quant}</div>
-                    <button type="button">X</button>
+                      <div>Quantity: {succ.quant}</div>
+                      <button type="button">X</button>
                   </div>
                 </div>
               )
@@ -39,6 +39,7 @@ const Cart = () => {
         <div className="cart-title">
           <h1>Total: {total.toFixed(2)}</h1>
           <button type="button">Checkout</button>
+          <button type="button">Clear</button>
         </div>
       </div>
     )
