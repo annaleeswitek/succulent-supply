@@ -25,7 +25,6 @@ const Review = db.define('review', {
     type: Sequelize.STRING,
     defaultValue: 'anon'
   },
-
 })
 
 // Instance Methods

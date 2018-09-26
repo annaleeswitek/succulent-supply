@@ -2,6 +2,7 @@ import React, { Component }from 'react'
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { clearCartCount, updateCartCount, incrementCartCount, decrementCartCount } from '../store/cartCount'
+import { createNewOrder } from '../store/order'
 
 class Cart extends Component {
 
@@ -14,6 +15,7 @@ class Cart extends Component {
       this.handleDeleteClick = this.handleDeleteClick.bind(this)
       this.handleIncrementQuant = this.handleIncrementQuant.bind(this)
       this.handleDecrementQuant = this.handleDecrementQuant.bind(this)
+      this.handleCheckoutClick = this.handleCheckoutClick.bind(this)
     }
 
     handleClearClick (event) {
@@ -64,6 +66,12 @@ class Cart extends Component {
       this.forceUpdate()
     }
 
+    handleCheckoutClick (event) {
+      event.preventDefault()
+      console.log('i clicked')
+      this.props.createNewOrder(this.state.succulentsInCart)
+    }
+
     render () {
       let total = 0
 
@@ -86,9 +94,9 @@ class Cart extends Component {
               ?
               <div>
                 {
-                  this.state.succulentsInCart.map((succ, idx) => {
+                  this.state.succulentsInCart.map((succ) => {
                     return (
-                      <div key={idx}>
+                      <div key={succ.name}>
                         <hr />
                         <div className="cart-item">
                           <div className="cart-item-content">
@@ -96,9 +104,9 @@ class Cart extends Component {
                               <img src={succ.image} />
                             </Link>
                             <p>{succ.name}</p>
-                            <button value={succ.name} onClick={this.handleIncrementQuant} type="button">+</button>
-                              <div>Quantity: {succ.quant}</div>
                             <button value={succ.name} onClick={this.handleDecrementQuant} type="button">-</button>
+                              <div>Quantity: {succ.quant}</div>
+                            <button value={succ.name} onClick={this.handleIncrementQuant} type="button">+</button>
                             <div>Price: {(Number(succ.price) * succ.quant).toFixed(2)}</div>
                             <button onClick={this.handleDeleteClick} value={succ.name} type="button">X</button>
                           </div>
@@ -110,7 +118,7 @@ class Cart extends Component {
                 }
                 <div className="cart-title">
                   <h1>Total: {total.toFixed(2)}</h1>
-                  <button type="button">Checkout</button>
+                  <button onClick={this.handleCheckoutClick} type="button">Checkout</button>
                   <button onClick={this.handleClearClick} type="button">Clear Cart</button>
                 </div>
               </div>
@@ -137,6 +145,10 @@ const mapDispatch = dispatch => {
     },
     decrementCartCount() {
       dispatch(decrementCartCount())
+    },
+    createNewOrder(order) {
+      const thunk = createNewOrder(order)
+      dispatch(thunk)
     }
   }
 }

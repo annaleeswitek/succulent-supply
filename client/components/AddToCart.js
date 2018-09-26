@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { incrementCartCount } from '../store/cartCount'
+import history from '../history'
 
 class AddToCartButton extends Component {
 
@@ -50,6 +51,9 @@ class AddToCartButton extends Component {
     )
 
     this.props.incrementCartCount()
+
+    if (this.props.redirect) history.push('/cart')
+
   }
 
   render () {

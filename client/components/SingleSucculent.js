@@ -44,9 +44,7 @@ class SingleSucculent extends Component {
                     <br />
                     <div>Stars Go Here</div>
                     <br />
-                    <div>Choose amount field goes here</div>
-                    <br />
-                    <AddToCartButton succulent={singleSucculent}/>
+                    <AddToCartButton redirect={true} succulent={singleSucculent}/>
                     <hr />
                     <div>
                       {

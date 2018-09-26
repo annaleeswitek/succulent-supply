@@ -7,7 +7,6 @@ import { logout } from '../store'
 const Navbar = ({handleClick, isLoggedIn, cartCount}) => (
   <div>
     <nav className="nav-bar">
-
       <div className="title">
         <img src='/images/logo.jpg' className="logo-img" />
         <Link to='/home' style={{ textDecoration: 'none', color:'white' }} className="karla-font">
@@ -20,10 +19,10 @@ const Navbar = ({handleClick, isLoggedIn, cartCount}) => (
       {isLoggedIn ? (
         <div>
           {/* shown after log in */}
-          <Link to="/home">Home</Link>
           <a href="#" onClick={handleClick} className="karla-font nav-links">
             Logout
           </a>
+          <Link to="/cart" style={{ textDecoration: 'none', color: 'black' }} className="karla-font nav-links">{cartCount} 🛒 Cart</Link>
         </div>
       ) : (
         <div>

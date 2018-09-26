@@ -27,6 +27,7 @@ export default function(state = initialState, action) {
     case UPDATE_CART_COUNT:
       return state - action.itemsRemoved
     case DECREMENT_CART_COUNT:
+        if (state > 1)
       return state - 1
     default:
       return state

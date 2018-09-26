@@ -1,7 +1,21 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import { Link } from 'react-router-dom'
+import history from '../history'
 
 class Reviews extends Component {
+
+  constructor(){
+    super()
+
+    this.handleClick = this.handleClick.bind(this)
+  }
+
+  handleClick (event) {
+    event.preventDefault()
+    console.log('I clicked this')
+    history.push('/write-review')
+  }
 
   calculateStars(numStars){
     let starArray = []
@@ -21,7 +35,7 @@ class Reviews extends Component {
       <div className ="reviews-box">
         <div className="reviews-wrapper">
           <h2 className="karla-font reviews-title">Reviews</h2>
-          <button type="button">Write a Review</button>
+          <button onClick={this.handleClick} type="button">Write a Review</button>
         </div>
         <hr />
         {
