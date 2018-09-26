@@ -10,14 +10,11 @@ class Search extends Component {
   }
 
   handleChange(event) {
-
-    console.log('event.target.value', event.target.value)
     this.setState({ inputValue: event.target.value })
   }
 
   handleSubmit = event => {
     event.preventDefault()
-    console.log('this.state.inputValue on state is now set to: ', this.state.inputValue)
   }
 
   render() {

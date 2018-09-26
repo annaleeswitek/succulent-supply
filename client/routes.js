@@ -22,7 +22,7 @@ class Routes extends Component {
         <Route path="/cart" component={Cart} />
         <Route exact path="/succulents" component={SucculentList} />
         <Route path="/succulents/:id" component={SingleSucculent} />
-        <Route path="/write-review" component={WriteReview} />
+        <Route path="/write-review/:succulentId" component={WriteReview} />
         {isLoggedIn && (
           <Switch>
             {/* Routes placed here are only available after logging in */}

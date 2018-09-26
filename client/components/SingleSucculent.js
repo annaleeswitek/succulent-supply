@@ -16,7 +16,6 @@ class SingleSucculent extends Component {
 
   componentDidMount(){
     this.props.fetchOneSucculent(this.props.match.params.id)
-    console.log('this.props.match.params.id', this.props.match.params.id)
   }
 
   handleClick() {

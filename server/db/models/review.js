@@ -18,7 +18,7 @@ const Review = db.define('review', {
   body: {
     type: Sequelize.TEXT,
     validate: {
-        len: [10, 500]
+        len: [0, 500]
     }
   },
   author: {

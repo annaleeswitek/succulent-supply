@@ -31,8 +31,8 @@ router.post('/', async (req, res, next) => {
         quantity: succ.quant,
         totalPrice: succ.price * succ.quant
       })
-      res.send(newLineItem).status(201)
     })
+    res.sendStatus(201)
   } catch (err) {
     next(err)
   }

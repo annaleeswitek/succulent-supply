@@ -17,7 +17,6 @@ export const deselectSucculent = selectedSucculent => ({
 // Reducer
 
 export default function (state = [], action) {
-  console.log('action', action)
   let idx = state.indexOf(action.selectedSucculent)
   switch (action.type) {
     case SELECT_SUCCULENT:

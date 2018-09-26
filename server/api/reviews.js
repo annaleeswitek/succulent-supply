@@ -1,5 +1,5 @@
 const router = require('express').Router()
-const { Review } = require('../db/models')
+const { Review, Succulent } = require('../db/models')
 module.exports = router
 
 router.get('/', async (req, res, next) => {
@@ -11,10 +11,12 @@ router.get('/', async (req, res, next) => {
   }
 })
 
-router.post('/', async (req, res, next) => {
+router.post('/:succulentId', async (req, res, next) => {
   try {
+    const reviewedSucculent = await Succulent.findById(req.params.succulentId)
     const newReview = await Review.create(req.body)
-    res.send(newReview).status(201)
+    const setTheSucculent = await newReview.setSucculent(reviewedSucculent)
+    res.sendStatus(201)
   } catch (err) {
     next(err)
   }

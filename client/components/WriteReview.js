@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
+import { writeNewReview } from '../store/review'
+import { connect } from 'react-redux'
 
-export default class WriteReview extends Component {
+class WriteReview extends Component {
   constructor() {
     super()
     this.state = {
@@ -25,9 +27,9 @@ export default class WriteReview extends Component {
 
 
   handleSubmit(event) {
-    console.log('submitted!')
-    console.log('this.state', this.state)
     event.preventDefault()
+    const toSend = [this.state, this.props.match.params.succulentId]
+    this.props.writeNewReview(toSend)
     this.setState({ title: '', rating: 0, body: '', author: '' })
   }
 
@@ -72,3 +74,12 @@ export default class WriteReview extends Component {
     )
   }
 }
+
+const mapDispatch = dispatch => ({
+  writeNewReview(reviewAndId) {
+    const thunk = writeNewReview(reviewAndId)
+    dispatch(thunk)
+  }
+})
+
+export default connect(null, mapDispatch)(WriteReview)

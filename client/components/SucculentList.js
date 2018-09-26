@@ -10,9 +10,6 @@ class SucculentList extends Component {
   }
   render () {
     const { succulents, selectedFilters, selectedSucculents } = this.props
-    console.log('succulents:', succulents)
-    console.log('selectedFilters:', selectedFilters)
-    console.log('selectedSucculents', selectedSucculents)
     return (
       <div>
         <div className="products-wrapper">

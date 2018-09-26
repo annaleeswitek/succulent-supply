@@ -29,7 +29,6 @@ class Cart extends Component {
     handleDeleteClick (event) {
       event.preventDefault()
       event.persist()
-      console.log(event.target.value)
 
       const succulent = this.state.succulentsInCart.find(succ => succ.name === event.target.value)
 
@@ -68,7 +67,6 @@ class Cart extends Component {
 
     handleCheckoutClick (event) {
       event.preventDefault()
-      console.log('i clicked')
       this.props.createNewOrder(this.state.succulentsInCart)
     }
 

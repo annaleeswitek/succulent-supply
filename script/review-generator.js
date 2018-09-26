@@ -34,7 +34,6 @@ function generateWordPairs(words) {
 }
 
 var wordPairs = generateWordPairs(parseText(text));
-console.log(wordPairs);
 
 // Generate a random word from the poem
 

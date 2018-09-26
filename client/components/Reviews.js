@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { Link } from 'react-router-dom'
 import history from '../history'
 
 class Reviews extends Component {
@@ -13,8 +12,7 @@ class Reviews extends Component {
 
   handleClick (event) {
     event.preventDefault()
-    console.log('I clicked this')
-    history.push('/write-review')
+    history.push(`/write-review/${this.props.singleSucculent.id}`)
   }
 
   calculateStars(numStars){
@@ -57,6 +55,7 @@ class Reviews extends Component {
 }
 
 const mapState = state => ({
+  singleSucculent: state.singleSucculent,
   selectedReviews: state.singleSucculent.reviews
 })
 
