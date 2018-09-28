@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { writeNewReview } from '../store/review'
 import { connect } from 'react-redux'
+import history from '../history'
 
 class WriteReview extends Component {
   constructor() {
@@ -31,11 +32,12 @@ class WriteReview extends Component {
     const toSend = [this.state, this.props.match.params.succulentId]
     this.props.writeNewReview(toSend)
     this.setState({ title: '', rating: 0, body: '', author: '' })
+    history.push('/home')
   }
 
   render() {
     return (
-      <form onSubmit={this.handleSubmit}>
+      <form className="center submit-form" onSubmit={this.handleSubmit}>
         <label>
           Title:
           <input
@@ -46,7 +48,7 @@ class WriteReview extends Component {
           />
         </label>
         <label>
-          Rating:
+          Rating (1-5):
           <input
             name="rating"
             type="text"
