@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { clearCartCount, updateCartCount, incrementCartCount, decrementCartCount } from '../store/cartCount'
 import { createNewOrder } from '../store/order'
+import history from '../history'
 
 class Cart extends Component {
 
@@ -68,6 +69,8 @@ class Cart extends Component {
     handleCheckoutClick (event) {
       event.preventDefault()
       this.props.createNewOrder(this.state.succulentsInCart)
+      this.handleClearClick(event)
+      history.push('/thank-you')
     }
 
     render () {

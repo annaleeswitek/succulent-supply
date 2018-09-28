@@ -7,4 +7,5 @@ export { default as Search } from './Search'
 export { default as Cart } from './Cart'
 export { Login, Signup } from './AuthForm'
 export { default as WriteReview } from './WriteReview'
+export { default as ThankYou } from './ThankYou'
 

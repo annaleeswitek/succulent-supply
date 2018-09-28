@@ -23,6 +23,7 @@ router.post('/', async (req, res, next) => {
       totalPrice: sum,
       status: 'paid'
     })
+
     succulents.forEach(async (succ) => {
       const newLineItem = await LineItem.create({
         orderId: newOrder.id,
@@ -32,7 +33,6 @@ router.post('/', async (req, res, next) => {
         totalPrice: succ.price * succ.quant
       })
     })
-    res.sendStatus(201)
   } catch (err) {
     next(err)
   }
