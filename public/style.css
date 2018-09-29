@@ -90,24 +90,6 @@ nav {
 	width: 250px;
 }
 
-.footer-relative {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  height: 80px;
-  background: #B3D6AD;
-  padding-top: 20px;
-  padding-bottom: 30px;
-  margin-top: 50px;
-  position: relative;
-  left:0;
-  bottom: 0;
-  right: 0;
-}
-
 .footer {
   display: flex;
   justify-content: center;
@@ -229,6 +211,7 @@ nav {
 }
 
 .center {
+  padding-top: 50px;
   text-align: center;
 }
 

@@ -9,7 +9,7 @@ class SucculentList extends Component {
     this.props.fetchSucculents()
   }
   render () {
-    const { succulents, selectedFilters, selectedSucculents } = this.props
+    const { succulents, selectedSucculents } = this.props
     return (
       <div>
         <div className="products-wrapper">
@@ -32,12 +32,9 @@ class SucculentList extends Component {
   }
 }
 
-// <div><h2>🚫🌵 Sorry! No succulents to see here! 🚫🌵</h2></div>
-
 const mapState = state => {
   return {
     succulents: state.succulents,
-    selectedFilters: state.selectedFilters,
     selectedSucculents: state.selectedSucculents
   }
 }

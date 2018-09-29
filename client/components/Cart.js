@@ -38,6 +38,7 @@ class Cart extends Component {
       }))
       this.props.updateCartCount(succulent.quant)
 
+
       localStorage.setItem(
         'cart',
         JSON.stringify({
@@ -70,7 +71,7 @@ class Cart extends Component {
       event.preventDefault()
       this.props.createNewOrder(this.state.succulentsInCart)
       this.handleClearClick(event)
-      history.push('/thank-you')
+      history.push('/thank-you-order')
     }
 
     render () {

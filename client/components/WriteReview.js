@@ -35,7 +35,7 @@ class WriteReview extends Component {
     const toSend = [this.state, this.props.match.params.succulentId]
     this.props.writeNewReview(toSend)
     this.setState({ title: '', rating: '', body: '', author: '' })
-    history.push('/home')
+    history.push(`/thank-you-review/${this.props.match.params.succulentId}`)
   }
 
   render() {

@@ -8,8 +8,8 @@ The cuttings were in great condition and the instructions were very helpful. I u
 
 // Make all the words in the text lower case and remove punctuation
 
-function parseText(text){
-  const lowerCaseText = text.toLowerCase();
+function parseText(txt){
+  const lowerCaseText = txt.toLowerCase();
   const noPuncText = lowerCaseText.replace(/(~|`|!|@|#|$|%|^|&|\*|\(|\)|{|}|\[|\]|;|:|\"|'|<|,|\.|>|\?|\/|\\|\||-|_|\+|=)/g,"");
   const textArray = noPuncText.split(' ');
   return textArray;
@@ -46,7 +46,7 @@ function randomWord(wordArray){
 
 function writeLine(mcObj, minWords){
   const textArray = Object.keys(mcObj); // array of all the keys
-  const word = randomWord(textArray); // chooses a random word from the array of keys
+  let word = randomWord(textArray); // chooses a random word from the array of keys
   const line = [word]; // this is an array of each word in the line
 
   while (line.length < minWords){  // while the line is less than the assigned length
@@ -70,4 +70,4 @@ function generateReview(wordCorpus, numLines, numWords){
   return poem;
 }
 
-generateReview(wordPairs, 10, 4);
+console.log(generateReview(wordPairs, 10, 4));

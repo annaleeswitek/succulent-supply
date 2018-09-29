@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { withRouter, Route, Switch } from 'react-router-dom'
 import PropTypes from 'prop-types'
-import { Login, Signup, SucculentList, SingleSucculent, Cart, WriteReview, ThankYou } from './components'
+import { Login, Signup, SucculentList, SingleSucculent, Cart, WriteReview, ThankYouOrder, ThankYouReview } from './components'
 import { me } from './store'
 
 // Component
@@ -23,7 +23,8 @@ class Routes extends Component {
         <Route exact path="/succulents" component={SucculentList} />
         <Route path="/succulents/:id" component={SingleSucculent} />
         <Route path="/write-review/:succulentId" component={WriteReview} />
-        <Route path="/thank-you" component={ThankYou} />
+        <Route path="/thank-you-order" component={ThankYouOrder} />
+        <Route path="/thank-you-review/:succulentId" component={ThankYouReview} />
         {isLoggedIn && (
           <Switch>
             {/* Routes placed here are only available after logging in */}
