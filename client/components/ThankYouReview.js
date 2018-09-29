@@ -2,7 +2,6 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 
 const ThankYouReview = (props) => {
-  console.log('the props are', props)
   return (
     <div className="center">
       <h1 className="karla-font">
