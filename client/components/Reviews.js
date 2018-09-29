@@ -37,6 +37,8 @@ class Reviews extends Component {
         </div>
         <hr />
         {
+          (selectedReviews && selectedReviews.length > 0)
+          ?
           selectedReviews && selectedReviews.map(review => {
             return (
               <div key={review.id}>
@@ -48,6 +50,8 @@ class Reviews extends Component {
               </div>
             )
           })
+          :
+          <h3>No reviews yet! Be the first to write a review</h3>
         }
       </div>
     )
