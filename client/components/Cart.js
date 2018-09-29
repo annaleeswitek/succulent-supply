@@ -82,7 +82,7 @@ class Cart extends Component {
         })
       }
       return (
-        <div>
+        <div className="min-height">
           <div className="cart-title">
           <hr />
             <h1>Shopping Cart</h1>

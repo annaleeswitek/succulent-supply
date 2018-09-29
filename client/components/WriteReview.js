@@ -2,13 +2,16 @@ import React, { Component } from 'react'
 import { writeNewReview } from '../store/review'
 import { connect } from 'react-redux'
 import history from '../history'
+import Form from 'muicss/lib/react/form';
+import Input from 'muicss/lib/react/input';
+import Textarea from 'muicss/lib/react/textarea';
 
 class WriteReview extends Component {
   constructor() {
     super()
     this.state = {
       title: '',
-      rating: 0,
+      rating: '',
       body: '',
       author: ''
     }
@@ -31,48 +34,45 @@ class WriteReview extends Component {
     event.preventDefault()
     const toSend = [this.state, this.props.match.params.succulentId]
     this.props.writeNewReview(toSend)
-    this.setState({ title: '', rating: 0, body: '', author: '' })
+    this.setState({ title: '', rating: '', body: '', author: '' })
     history.push('/home')
   }
 
   render() {
     return (
-      <form className="center submit-form" onSubmit={this.handleSubmit}>
-        <label>
-          Title:
-          <input
-            name="title"
-            type="text"
-            value={this.state.title}
-            onChange={this.handleInputChange}
-          />
-        </label>
-        <label>
-          Rating (1-5):
-          <input
-            name="rating"
-            type="text"
-            value={this.state.rating}
-            onChange={this.handleInputChange} />
-        </label>
-        <label>
-          Body:
-          <input
-            name="body"
-            type="text"
-            value={this.state.body}
-            onChange={this.handleInputChange} />
-        </label>
-        <label>
-          Author:
-          <input
-            name="author"
-            type="text"
-            value={this.state.author}
-            onChange={this.handleInputChange} />
-        </label>
-        <input type="submit" value="Submit" />
-      </form>
+      <Form className="center submit-form" onSubmit={this.handleSubmit}>
+        <legend>Submit Your Review:</legend>
+        <Input
+          placeholder="Title of your review"
+          name="title"
+          type="text"
+          value={this.state.title}
+          onChange={this.handleInputChange}
+        />
+        <br />
+        <Input
+          placeholder="Rating 1-5 Stars"
+          name="rating"
+          type="text"
+          value={this.state.rating}
+          onChange={this.handleInputChange} />
+        <br />
+        <Textarea
+          placeholder="Write Your Review"
+          name="body"
+          type="text"
+          value={this.state.body}
+          onChange={this.handleInputChange} />
+        <br />
+        <Input
+          placeholder="Your name"
+          name="author"
+          type="text"
+          value={this.state.author}
+          onChange={this.handleInputChange} />
+        <br />
+        <button type="submit">Submit</button>
+      </Form>
     )
   }
 }

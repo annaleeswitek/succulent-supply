@@ -41,7 +41,6 @@ class SingleSucculent extends Component {
                     <br />
                     <div className="karla-font product-price">Price: ${singleSucculent.price}</div>
                     <br />
-                    <div>Stars Go Here</div>
                     <br />
                     <AddToCartButton redirect={true} succulent={singleSucculent}/>
                     <hr />
