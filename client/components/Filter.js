@@ -37,8 +37,7 @@ class Filter extends Component {
   render () {
     console.log(this.props.succulents)
     return (
-      <div>
-        <h3 className="karla-font">Filter Results:</h3>
+      <div className="filter-box">
         <form>
           <div>
             <div>
