@@ -49,22 +49,10 @@ const Succulent = db.define('succulent', {
       notEmpty: true
     }
   },
-  cuteness: {
-    type: Sequelize.ENUM('wildly cute', 'somewhat cute', 'just cuteish'),
-    defaultValue: 'somewhat cute'
-  },
-  sunNeeds: {
-    type: Sequelize.ENUM('direct sun', 'partial sun', 'shade'),
-    defaultValue: 'partial sun'
-  },
-  isCactus : {
+  isCactus: {
     type: Sequelize.BOOLEAN,
     defaultValue: false
   }
 })
-
-// Need a method that returns the 5 most highly rated succulents
-
-// Need a method that calculates the average star rating of a product
 
 module.exports = Succulent

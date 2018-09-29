@@ -45,41 +45,41 @@ class SingleSucculent extends Component {
                     <AddToCartButton redirect={true} succulent={singleSucculent}/>
                     <hr />
                     <div>
-                      {
-                        this.state.toggle
-                        ?
-                          (
-                            <div className="info-options-box">
-                              <div className="selected" onClick={this.handleClick}><b>Description</b></div>
-                              <div onClick={this.handleClick}><b>Details</b></div>
-                            </div>
-                          )
-                        :
-                          (
-                            <div className="info-options-box">
-                              <div onClick={this.handleClick}><b>Description</b></div>
-                              <div className="selected" onClick={this.handleClick}><b>Details</b></div>
-                            </div>
-                          )
-                      }
+                    {
+                      this.state.toggle
+                      ?
+                        (
+                          <div className="info-options-box">
+                            <div className="selected" onClick={this.handleClick}><b>Description</b></div>
+                            <div onClick={this.handleClick}><b>Details</b></div>
+                          </div>
+                        )
+                      :
+                        (
+                          <div className="info-options-box">
+                            <div onClick={this.handleClick}><b>Description</b></div>
+                            <div className="selected" onClick={this.handleClick}><b>Details</b></div>
+                          </div>
+                        )
+                    }
                     </div>
-                      {
-                        this.state.toggle
-                        ?
-                          (
-                            <div>
-                              <p>{singleSucculent.description}</p>
-                            </div>
-                          )
-                        :
-                          (
-                            <div>
-                              <p><b>Family:</b> {singleSucculent.family}</p>
-                              <p><b>Genus: </b>{singleSucculent.genus}</p>
-                              <p><b>Species:</b> {singleSucculent.species}</p>
-                            </div>
-                          )
-                      }
+                    {
+                      this.state.toggle
+                      ?
+                        (
+                          <div>
+                            <p>{singleSucculent.description}</p>
+                          </div>
+                        )
+                      :
+                        (
+                          <div>
+                            <p><b>Family:</b> {singleSucculent.family}</p>
+                            <p><b>Genus: </b>{singleSucculent.genus}</p>
+                            <p><b>Species:</b> {singleSucculent.species}</p>
+                          </div>
+                        )
+                    }
                 </div>
               </div>
               </div>

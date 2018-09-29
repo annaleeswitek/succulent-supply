@@ -9,4 +9,5 @@ export { Login, Signup } from './AuthForm'
 export { default as WriteReview } from './WriteReview'
 export { default as ThankYouOrder } from './ThankYouReview'
 export { default as ThankYouReview } from './ThankYouReview'
+export { default as Filter } from './Filter'
 

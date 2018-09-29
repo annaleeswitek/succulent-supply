@@ -1,7 +1,7 @@
 'use strict'
 
 const db = require('../server/db')
-const { User, Succulent, Review } = require('../server/db/models')
+const { User, Succulent, Review, Category } = require('../server/db/models')
 
 async function seed() {
   await db.sync({force: true})
@@ -25,10 +25,7 @@ async function seed() {
       quantity: 100,
       family: 'Asphodelaceae' ,
       genus: 'Haworthia',
-      species: 'Attenuata',
-      isCactus: false,
-      sunNeeds: 'direct sun',
-      cuteness: 'wildly cute'}),
+      species: 'Attenuata'}),
 
     Succulent.create({
         name: 'Echeveria',
@@ -38,10 +35,7 @@ async function seed() {
         quantity: 50,
         family: 'Crassulaceae',
         genus: 'Echeveria',
-        species: 'Echevelia gibbiflora',
-        isCactus: false,
-        sunNeeds: 'partial sun',
-        cuteness: 'wildly cute'}),
+        species: 'Echevelia gibbiflora'}),
 
       Succulent.create({
         name: 'Flowering Kalanchoe',
@@ -51,10 +45,7 @@ async function seed() {
         quantity: 75,
         family: 'Crassulaceae',
         genus: 'Kalanchoe',
-        species: 'Kalanchoe blossfeldiana',
-        isCactus: false,
-        sunNeeds: 'shade',
-        cuteness: 'wildly cute'}),
+        species: 'Kalanchoe blossfeldiana'}),
 
       Succulent.create({
         name: 'String of Pearls',
@@ -64,10 +55,7 @@ async function seed() {
         quantity: 60,
         family: 'Asteraceae',
         genus: 'Senecio',
-        species: 'S. rowleyanus',
-        sunNeeds: 'direct sun',
-        isCactus: false,
-        cuteness: 'wildly cute'}),
+        species: 'S. rowleyanus'}),
 
       Succulent.create({
         name: 'Lithops',
@@ -77,10 +65,7 @@ async function seed() {
         quantity: 7,
         family: 'Aizoaceae',
         genus: 'Lithops',
-        species: 'Assorted Types',
-        sunNeeds: 'partial sun',
-        isCactus: false,
-        cuteness: 'somewhat cute'}),
+        species: 'Assorted Types'}),
 
       Succulent.create({
         name: 'Crown of Thorns',
@@ -90,10 +75,7 @@ async function seed() {
         quantity: 45,
         family: 'Euphorbiaceae',
         genus: 'Euphorbia',
-        species: 'E. milii',
-        isCactus: false,
-        sunNeeds: 'shade',
-        cuteness: 'somewhat cute'}),
+        species: 'E. milii'}),
 
     // Cacti
 
@@ -106,9 +88,7 @@ async function seed() {
         family: 'Cactaceae',
         genus: 'Parodia',
         species: 'Notocactus',
-        sunNeeds: 'direct sun',
-        isCactus: true,
-        cuteness: 'somewhat cute'}),
+        isCactus: true}),
 
       Succulent.create({
         name: 'Parodia Nivosa',
@@ -119,9 +99,7 @@ async function seed() {
         family: 'Cactaceae',
         genus: 'Parodia',
         species: 'Parodia Nivosa',
-        sunNeeds: 'partial sun',
-        isCactus: true,
-        cuteness: 'somewhat cute'}),
+        isCactus: true}),
 
       Succulent.create({
         name: 'Rubutia Kupperiana',
@@ -132,9 +110,7 @@ async function seed() {
         family: 'Cactaceae',
         genus: 'Rebutia',
         species: 'Rubutia Kupperiana',
-        sunNeeds: 'shade',
-        isCactus: true,
-        cuteness: 'just cuteish'}),
+        isCactus: true}),
 
       Succulent.create({
         name: 'Fralea Castanea',
@@ -145,9 +121,7 @@ async function seed() {
         family: 'Cactaceae',
         genus: 'Frailea',
         species: 'Fralea Castanea',
-        isCactus: true,
-        sunNeeds: 'direct sun',
-        cuteness: 'just cuteish'}),
+        isCactus: true}),
 
       Succulent.create({
         name: 'Euphoribia Avasmontana',
@@ -158,9 +132,7 @@ async function seed() {
         family: 'Euphorbiaceae',
         genus: 'Euphorbia',
         species: 'Euphoribia Avasmontana',
-        isCactus: true,
-        sunNeeds: 'partial sun',
-        cuteness: 'just cuteish'}),
+        isCactus: true}),
 
       Succulent.create({
         name: 'Sulcorebutia Rauschii',
@@ -171,9 +143,7 @@ async function seed() {
         family: 'Cactaceae',
         genus: 'Rebutia',
         species: 'Sulcorebutia Rauschii',
-        sunNeeds: 'shade',
-        isCactus: true,
-        cuteness: 'just cuteish'}),
+        isCactus: true}),
     ])
 
     console.log(`seeded ${succulents.length} succulents`)
@@ -204,6 +174,113 @@ async function seed() {
 
     console.log(`seeded ${addReviewsToSucculents.length} reviews for specific succulents`);
     console.log(`seeded successfully`)
+
+    const categories = await Promise.all([
+      Category.create({
+        title: 'flowering'
+      }),
+      Category.create({
+        title: 'tiny'
+      }),
+      Category.create({
+        title: 'cactus'
+      }),
+      Category.create({
+        title: 'staff favorite'
+      })
+    ])
+    console.log(`seeded ${categories.length} categories`);
+    console.log(`seeded successfully`)
+
+    const lithops = await Succulent.findOne({
+      where: {
+        name: 'Lithops'
+      }
+    })
+
+    const fralea = await Succulent.findOne({
+      where: {
+        name: 'Fralea Castanea'
+      }
+    })
+
+    const parodia = await Succulent.findOne({
+      where: {
+        name: 'Parodia Nivosa'
+      }
+    })
+
+    const tiny = await Category.findOne({
+      where: {
+        title: 'tiny'
+      }
+    })
+
+    const lithopsCategory = await lithops.setCategory(tiny)
+
+    const kalanchoe = await Succulent.findOne({
+      where: {
+        name: 'Flowering Kalanchoe'
+      }
+    })
+
+    const crown = await Succulent.findOne({
+      where: {
+        name: 'Crown of Thorns'
+      }
+    })
+
+    const flowering = await Category.findOne({
+      where: {
+        title: 'flowering'
+      }
+    })
+
+    const kalenchoeCategory = await kalanchoe.setCategory(flowering)
+    const crownCategory = await crown.setCategory(flowering)
+
+    const cacti = await Succulent.findAll({
+      where: {
+        isCactus: true
+      }
+    })
+
+    const cactusCategory = await Category.findOne({
+      where: {
+        title: 'cactus'
+      }
+    })
+
+    const setCactiCategory = await cactusCategory.setSucculents(cacti)
+
+    const staffFavorite = await Category.findOne({
+      where: {
+        title: 'staff favorite'
+      }
+    })
+
+    const zebra = await Succulent.findOne({
+      where: {
+        name: `Zebra Haworthia 'Big Band'`
+      }
+    })
+
+    const echeveria = await Succulent.findOne({
+      where: {
+        name: 'Echeveria'
+      }
+    })
+
+    const stringOfPearls = await Succulent.findOne({
+      where: {
+        name: 'String of Pearls'
+      }
+    })
+
+    const zebraCategory = await zebra.setCategory(staffFavorite)
+    const echeveriaCategory = await echeveria.setCategory(staffFavorite)
+    const stringCategory = await stringOfPearls.setCategory(staffFavorite)
+
   }
 
 async function runSeed() {
