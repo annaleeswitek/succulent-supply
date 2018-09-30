@@ -15,7 +15,7 @@ While demo-ing, you can:
 5. Checkout, and visit a thank you page. Your order has been added to the db! 
 6. Review a succulent and see your review posted to the succulents description page. 
 
-Thanks for visiting Succulent Supply! I built this as some light practice with React and Redux, styling and local storage. 
+Thanks for visiting Succulent Supply! I built this as some light practice with React, Redux, Express, Sequelize, Postgres, styling and local storage. 
 
 
 
