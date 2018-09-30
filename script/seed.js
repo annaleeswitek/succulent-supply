@@ -161,6 +161,30 @@ async function seed() {
         rating: 3.5,
         body: 'I was under the impression this succulent was able to fly, but it just sits there. Meh.',
         author: 'Some disgruntled person'
+      }),
+      Review.create({
+        title: 'SO GREAT',
+        rating: 5,
+        body: 'Just loved it',
+        author: 'Anon'
+      }),
+      Review.create({
+        title: 'Not good',
+        rating: 2.5,
+        body: 'I could not find a spot for this plant in my house.',
+        author: 'Anon'
+      }),
+      Review.create({
+        title: 'Just lovely!',
+        rating: 4,
+        body: 'I got this succulent as a gift for my friend and they loved it!',
+        author: 'Anon'
+      }),
+      Review.create({
+        title: 'Cute and fun',
+        rating: 4.5,
+        body: 'Adorable succulent, must have!',
+        author: 'Anon'
       })
     ])
 
@@ -169,7 +193,11 @@ async function seed() {
 
     const addReviewsToSucculents = await Promise.all([
       Review.findById(1).then(review => review.setSucculent(1)),
-      Review.findById(2).then(review => review.setSucculent(1))
+      Review.findById(2).then(review => review.setSucculent(2)),
+      Review.findById(3).then(review => review.setSucculent(3)),
+      Review.findById(4).then(review => review.setSucculent(4)),
+      Review.findById(5).then(review => review.setSucculent(5)),
+      Review.findById(6).then(review => review.setSucculent(6)),
     ]);
 
     console.log(`seeded ${addReviewsToSucculents.length} reviews for specific succulents`);
