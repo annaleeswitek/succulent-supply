@@ -10,7 +10,7 @@ const ThankYouReview = (props) => {
       <br />
       <br />
       <Link to={`/succulents/${props.match.params.succulentId}`}>
-      <button type="button">Return to the succulent you reviewed</button>
+      <button type="button" className="btn btn-secondary">Return to the succulent you reviewed</button>
       </Link>
     </div>
   )
