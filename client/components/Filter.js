@@ -37,9 +37,9 @@ class Filter extends Component {
   render () {
     console.log(this.props.succulents)
     return (
-      <div className="filter-box">
-        <form>
-          <div>
+      <div>
+        <form className="filter-box">
+          <div className="category-box">
             <div>
               <input
                 value="flowering"

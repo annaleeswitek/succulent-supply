@@ -58,7 +58,7 @@ class AddToCartButton extends Component {
 
   render () {
     return (
-      <button type="button" onClick={this.handleClick}>Add to Cart</button>
+      <button type="button" className="btn btn-secondary" onClick={this.handleClick}>Add to Cart</button>
     )
   }
 }

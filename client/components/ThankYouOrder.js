@@ -10,7 +10,7 @@ const ThankYouOrder = () => {
       <br />
       <br />
       <Link to="/home">
-      <button type="button">Keep Shopping</button>
+      <button className="btn btn-secondary" type="button">Keep Shopping</button>
       </Link>
     </div>
   )

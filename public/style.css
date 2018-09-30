@@ -244,4 +244,10 @@ nav {
   justify-content: center;
  }
 
+ .cart-buttons{
+   display: flex;
+   flex-direction: row;
+   justify-content: space-evenly;
+
+ }
 

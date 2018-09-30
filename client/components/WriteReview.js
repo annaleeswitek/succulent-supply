@@ -71,7 +71,7 @@ class WriteReview extends Component {
           value={this.state.author}
           onChange={this.handleInputChange} />
         <br />
-        <button type="submit">Submit</button>
+        <button className="btn btn-secondary" type="button">Submit</button>
       </Form>
     )
   }

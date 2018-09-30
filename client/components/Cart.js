@@ -106,11 +106,11 @@ class Cart extends Component {
                               <img src={succ.image} />
                             </Link>
                             <p>{succ.name}</p>
-                            <button value={succ.name} onClick={this.handleDecrementQuant} type="button">-</button>
+                            <button className="btn btn-secondary" value={succ.name} onClick={this.handleDecrementQuant} type="button">-</button>
                               <div>Quantity: {succ.quant}</div>
-                            <button value={succ.name} onClick={this.handleIncrementQuant} type="button">+</button>
+                            <button className="btn btn-secondary" value={succ.name} onClick={this.handleIncrementQuant} type="button">+</button>
                             <div>Price: {(Number(succ.price) * succ.quant).toFixed(2)}</div>
-                            <button onClick={this.handleDeleteClick} value={succ.name} type="button">X</button>
+                            <button className="btn btn-danger" onClick={this.handleDeleteClick} value={succ.name} type="button">X</button>
                           </div>
                         </div>
                         <hr />
@@ -120,8 +120,10 @@ class Cart extends Component {
                 }
                 <div className="cart-title">
                   <h1>Total: {total.toFixed(2)}</h1>
-                  <button onClick={this.handleCheckoutClick} type="button">Checkout</button>
-                  <button onClick={this.handleClearClick} type="button">Clear Cart</button>
+                  <div className="cart-buttons">
+                    <button onClick={this.handleCheckoutClick} className="btn btn-secondary" type="button">Checkout</button>
+                    <button onClick={this.handleClearClick} className="btn btn-secondary" type="button">Clear Cart</button>
+                  </div>
                 </div>
               </div>
               :

@@ -33,7 +33,7 @@ class Reviews extends Component {
       <div className ="reviews-box">
         <div className="reviews-wrapper">
           <h2 className="karla-font reviews-title">Reviews</h2>
-          <button onClick={this.handleClick} type="button">Write a Review</button>
+          <button className="btn btn-secondary" onClick={this.handleClick} type="button">Write a Review</button>
         </div>
         <hr />
         {
