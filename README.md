@@ -4,7 +4,8 @@
 
 🌵 An eCommerce hub for all your succulent needs! 🌵Project complete! This project was built by Annalee Switek. 
 
-# To demo, visit the deployed link: https://succulent-supply.herokuapp.com/
+# To demo, visit the deployed link: 
+https://succulent-supply.herokuapp.com/
 
 While demo-ing, you can: 
 
