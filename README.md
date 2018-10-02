@@ -12,7 +12,7 @@ While demo-ing, you can:
 2. Click a succulent to view it's description and reviews
 3. Visit your cart and change the quantity of items
 4. Close your browser, re-open, and see that your cart persists
-5. Checkout, and visit a thank you page. Your order has been added to the db! 
+5. Checkout, and visit a thank you view. Your order has been added to the db! 
 6. Review a succulent and see your review posted to the succulents description page. 
 
 Note: the "Succulent Supply" logo on the top left in the nav bar will bring you back to the catalog. 
