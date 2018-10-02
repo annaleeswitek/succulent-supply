@@ -8,7 +8,7 @@ To demo, visit the deployed link: https://succulent-supply.herokuapp.com/
 
 While demo-ing, you can: 
 
-1. Add a succulent to your cart
+1. Add succulents to your cart
 2. Click a succulent to view it's description and reviews
 3. Visit your cart and change the quantity of items
 4. Close your browser, re-open, and see that your cart persists
