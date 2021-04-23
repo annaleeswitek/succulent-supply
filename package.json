@@ -1,7 +1,7 @@
 {
   "name": "succulent-supply",
   "version": "1.0.0",
-  "description": "A stop shop for all your succulent needs!",
+  "description": "A one stop shop for all your succulent needs!",
   "engines": {
     "node": "14.16.1"
   },
