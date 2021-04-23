@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "A stop shop for all your succulent needs!",
   "engines": {
-    "node": ">= 7.0.0"
+    "node": "14.16.1"
   },
   "main": "index.js",
   "scripts": {
