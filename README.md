@@ -4,7 +4,7 @@
 
 🌵 An eCommerce hub for all your succulent needs! 🌵Project complete! This project was built by Annalee Switek. 
 
-(👷🏻‍♀️ Appologies, site is currently down )
+(👷🏻‍♀️ Apologies, site is currently down )
 
 While demo-ing, you can: 
 
